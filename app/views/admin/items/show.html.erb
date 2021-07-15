@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <h2>商品詳細</h2>
-
+      <%= attachment_image_tag @item, :item_image %>
       <h3>商品名</h3>
         <%= @item.name %>
       <h3>商品説明</h3>

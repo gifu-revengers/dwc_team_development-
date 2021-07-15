@@ -11,7 +11,7 @@ class Item < ApplicationRecord
     validates :name
     validates :caption
     validates :price
-    validates :item_image_id
+    validates :item_image
     validates :is_active
   end
 
@@ -20,7 +20,7 @@ class Item < ApplicationRecord
     tax = 1.10
     (price * tax).round
   end
-  
+
 # 商品のステータスを
   def status
     is_active ? '販売中' : '販売停止中'
