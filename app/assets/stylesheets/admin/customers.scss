@@ -4,10 +4,14 @@
 
  .withdrawal{
    color :#dcdcdc;
+   display: table-cell;
+   vertical-align: inherit;
  }
 
  .active{
    color :#008000;
+   display: table-cell;
+   vertical-align: inherit;
  }
 
 .pagination {
