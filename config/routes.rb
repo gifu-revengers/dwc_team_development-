@@ -1,10 +1,20 @@
 Rails.application.routes.draw do
 
+  devise_for :admin, controllers: {
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords',
+    registrations: 'admin/registrations'
+  }
+
+  devise_for :customers, controllers: {
+    sessions: 'customers/sessions',
+    passwords: 'customers/passwords',
+    registrations: 'customers/registrations'
+  }
   scope module: 'public' do
-    devise_for :customers
 
     root 'homes#top'
-    get  'about',   to: 'homes/about'
+    get  'about',   to: 'homes#about'
 
     resource  :customers,     only:[:show,:edit,:update] do
         get   'quit_confirm', on: :collection
@@ -28,7 +38,6 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    devise_for :admins
     resources  :customers,   except:[:new,:destroy,:create]
     resources  :genres,      except:[:new,:destroy,:show]
     resources  :items,       except:[:destroy]
