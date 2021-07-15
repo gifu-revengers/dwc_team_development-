@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     passwords: 'customers/passwords',
     registrations: 'customers/registrations'
   }
+
   scope module: 'public' do
 
     root 'homes#top'
@@ -24,7 +25,7 @@ Rails.application.routes.draw do
     resources :shipping_addresses, except:[:new,:show]
     resources :items,              only:[:index,:show]
 
-    resources :carts_items, except:[:new,:edit,:show] do
+    resources :cart_items, except:[:new,:edit,:show] do
       delete 'destroy_all', on: :collection
     end
 
