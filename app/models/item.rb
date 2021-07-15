@@ -12,7 +12,6 @@ class Item < ApplicationRecord
     validates :caption
     validates :price
     validates :item_image
-    validates :is_active
   end
 
 # 消費税込みの値段表示
@@ -21,7 +20,7 @@ class Item < ApplicationRecord
     (price * tax).round
   end
 
-# 商品のステータスを
+# 商品のステータスを表示
   def status
     is_active ? '販売中' : '販売停止中'
   end

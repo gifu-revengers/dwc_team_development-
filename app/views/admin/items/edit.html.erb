@@ -1,0 +1,18 @@
+<h2>商品編集</h2>
+
+<%= form_with model: @item, url:admin_item_path(@item), local: true do |f| %>
+  <h3>商品画像</h3>
+  <%= f.attachment_field :item_image %>
+  <h3>商品名</h3>
+  <%= f.text_field :name %>
+  <h3>商品説明</h3>
+  <%= f.text_area :caption %>
+  <h3>ジャンル</h3>
+  <%= f.select :genre_id, @genrus.map{ |genru| [genru.name, genru.id] }, :prompt => "選択してください" %>
+  <h3>税抜価格</h3>
+  <%= f.text_field :price %>円
+  <h3>販売ステータス</h3>
+  <%= f.radio_button :is_active, "true" %>販売中
+  <%= f.radio_button :is_active, "false" %>販売停止中
+  <%= f.submit '変更を保存' %>
+<% end %>
