@@ -13,8 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
  @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
 
  footer{
    width :100%;
@@ -33,4 +34,5 @@
    color :#ffffff;
    line-height :100px;
  }
+  
 
