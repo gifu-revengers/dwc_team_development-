@@ -5,11 +5,95 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="/">LOGO</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <div class="welcome_customer">
+                <% if customer_signed_in? %>
+                  <%= "ようこそ、#{current_customer.join_name}!" %>
+                <% end %>
+              </div>
+              <% if customer_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "マイページ", customers_path, class: "nav-link text-light" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "商品一覧", items_path, class: " nav-link text-light" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "カート", cart_items_path, class: " nav-link text-light" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "nav-link text-light" %>
+                </li>
+              <% elsif admin_signed_in? %>
+                <li class="nav-item">
+                  <%= link_to "商品一覧", admin_items_path, class: "nav-link text-light" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "会員一覧", admin_customers_path, class: "nav-link text-light" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "注文履歴一覧", admin_orders_path, class: "nav-link text-light" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ジャンル一覧", admin_genres_path, class: "nav-link text-light" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "nav-link text-light" %>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "About", about_path, class: "nav-link text-light" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "商品一覧", items_path, class: "nav-link text-light" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "新規登録", new_customer_registration_path, class: "nav-link text-light" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログイン", new_customer_session_path, class: "nav-link text-light" %>
+                </li>
+              <% end %>
+            </ul>
+            <div class="search-form">
+              <%= form_with scope: :search, url: items_path, method: :get, local: true do |f| %>
+                <%=f.text_field :search_word%>
+                <%=f.submit "検索"%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+
+    <main>
+      <% if alert %>
+　  　  <p class="alert"><%= alert %></p>
+   　  <% end %>
+      <div class="flash">
+        <% if flash[:notice] %>
+          <div class="flash">
+            <%= flash[:notice]%>
+          </div>
+        <% end %>
+      </div>
+      <%= yield %>
+    </main>
+    <footer class="foot">CopyRight GifuRevengers.inc</footer>
+
   </body>
 </html>

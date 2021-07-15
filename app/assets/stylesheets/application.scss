@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+
+ footer{
+   width :100%;
+   text-align :center;
+ }
+
+ .flash{
+   color :#008000;
+ }
+
+ .alert{
+   color :#ff0000;
+ }
+
+ .welcome_customer{
+   color :#ffffff;
+   line-height :100px;
+ }
