@@ -2,13 +2,13 @@
 
 <%= form_with model: @item, url:admin_items_path, local: true do |f| %>
   <h3>商品画像</h3>
-  <%= f.attachment_field :item_image %>
+  
   <h3>商品名</h3>
   <%= f.text_field :name %>
   <h3>商品説明</h3>
   <%= f.text_area :caption %>
   <h3>ジャンル</h3>
-  <%= f.select :genre_id, @genrus.map{ |genru| [genru.name, genru.id] } %>
+  <%= f.select :genre_id, @genrus.map{ |genru| [genru.name, genru.id] }, :prompt => "選択してください" %>
   <h3>税抜価格</h3>
   <%= f.text_field :price %>円
   <h3>販売ステータス</h3>
