@@ -2,18 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
- .withdrawal{
-   color :#dcdcdc;
-   display: table-cell;
-   vertical-align: inherit;
- }
+  .viewtitle{
+    background-color :#dcdcdc;
+  }
 
- .active{
-   color :#008000;
-   display: table-cell;
-   vertical-align: inherit;
- }
+  .container{
+    margin-top :20px;
+  }
+  .withdrawal{
+    color :#dcdcdc;
+    display: table-cell;
+    vertical-align: inherit;
+  }
 
-.pagination {
-  justify-content: center;
-}
+  .active{
+    color :#008000;
+    display: table-cell;
+    vertical-align: inherit;
+  }
+
+  .pagination {
+    justify-content: center;
+  }
+
+  label{
+    width :150px;
+  }
