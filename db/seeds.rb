@@ -13,9 +13,9 @@
       first_name: "太郎#{n + 1}",
       last_name_kana: "タナカ#{n + 1}",
       first_name_kana: "タロウ#{n + 1}",
-      postcode: "000-000#{n + 1}",
+      postcode: "000000#{n + 1}",
       address: "田中の住所#{n + 1}",
-      phone_number: "000-0000-000#{n + 1}"
+      phone_number: "0000000000#{n + 1}"
     )
 
 
@@ -62,7 +62,7 @@
 
     ShippingAddress.create!(
       customer_id: n + 1,
-      postcode: "000-000#{n + 1}",
+      postcode: "000000#{n + 1}",
       address: "住所#{n + 1}",
       address_name: "宛名#{n + 1}"
     )
