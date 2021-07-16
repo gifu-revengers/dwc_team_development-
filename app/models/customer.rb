@@ -4,6 +4,9 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
+  validates :phone_number, format: {with: /\A[0-9]{10,11}\z/}
+
   has_many :orders
   has_many :cart_items, dependent: :destroy
   has_many :shipping_addresses, dependent: :destroy

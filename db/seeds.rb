@@ -15,7 +15,7 @@
       first_name_kana: "タロウ#{n + 1}",
       postcode: "000-000#{n + 1}",
       address: "田中の住所#{n + 1}",
-      phone_number: "000-0000-000#{n + 1}"
+      phone_number: "0000000000#{n + 1}"
     )
 
 
