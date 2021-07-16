@@ -19,7 +19,7 @@ module Naganocake
 
     #エラー時のレイアウト崩れ防止
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
-
-
+    
+    config.time_zone = 'Tokyo'
   end
 end
