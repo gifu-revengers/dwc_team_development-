@@ -27,7 +27,7 @@
     Order.create!(
       customer_id: n + 1,
       postage: 800,
-      total_price: (n + 1) * (n + 1) * 1000,
+      total_price: (n + 1) * 1000,
       postcode: "000-000#{n + 1}",
       address: "住所#{n + 1}",
       address_name: "宛名#{n + 1}",

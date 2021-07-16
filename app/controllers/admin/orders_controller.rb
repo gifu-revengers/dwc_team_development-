@@ -9,9 +9,22 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_details = OrderDetail.where(order_id: @order.id)
   end
 
   def update
+    @order = Order.find(params[:id])
+    @order.status = params[:order_status]
+    @order.save
+    #注文詳細の製作ステータスを更新
+    if @order.status == "入金確認"
+      @order_details = OrderDetail.where(order_id: @order.id)
+      @order_details.each do |order_detail|
+        order_detail.status = "製作待ち"
+        order_detail.save
+      end
+    end
   end
 
 end
