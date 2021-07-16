@@ -9,6 +9,6 @@ class ShippingAddress < ApplicationRecord
     validates :address_name
   end
 
-  validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
+  validates :postcode, format: {with: /\A[0-9]{7}\z/}
 
 end

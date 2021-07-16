@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :postcode, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
+  validates :postcode, format: {with: /\A[0-9]{7}\z/}
   validates :phone_number, format: {with: /\A[0-9]{10,11}\z/}
 
   has_many :orders
