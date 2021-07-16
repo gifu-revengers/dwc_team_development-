@@ -17,18 +17,18 @@
         <tbody>
           <% @customers.each do |customer| %>
             <tr>
-              <th><%= customer.id %></th>
-              <th><%= link_to admin_customer_path(customer.id) do %>
+              <td><%= customer.id %></td>
+              <td><%= link_to admin_customer_path(customer.id) do %>
                 <%= customer.join_name %>
-              <% end %></th>
-              <th><%= customer.email %></th>
-              <th>
+              <% end %></td>
+              <td><%= customer.email %></td>
+              <td>
                 <% if customer.is_deleted %>
                   <p class="withdrawal"><%= "退会" %></p>
                 <% else %>
                   <p class="active"><%= "有効" %></p>
               	<% end %>
-              </th>
+              </td>
             </tr>
           <% end %>
         </tbody>
