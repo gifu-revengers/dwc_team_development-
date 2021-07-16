@@ -1,0 +1,11 @@
+<h2>配送先編集</h2>
+
+<%= form_with model: @shipping_address, local: true do |f| %>
+  <p>郵便番号</p>
+  <%= f.text_field :postcode %>
+  <p>住所</p>
+  <%= f.text_field :address %>
+  <p>宛名</p>
+  <%= f.text_field :address_name %>
+  <%= f.submit "変更内容を" %>
+<% end %>
