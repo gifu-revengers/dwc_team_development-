@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
 
   enum status: { '入金待ち': 0, '入金確認': 1, ' 製作中': 2, '発送準備中': 3, '発送済み':4 }
+  enum payment_method: { 'クレジット': 0, '銀行振込': 1 }
 
   with_options presence: true do
     validates :customer_id
@@ -26,6 +27,11 @@ class Order < ApplicationRecord
       count += order_detail.quantity
     end
     return count
+  end
+
+  #送料含む総額を返す
+  def amount_including_shipping
+    self.total_price + self.postage
   end
 
 end

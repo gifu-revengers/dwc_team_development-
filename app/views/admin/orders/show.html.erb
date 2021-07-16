@@ -1,0 +1,121 @@
+<main>
+  <div class="container">
+    <div class="row">
+      <div class="col offset-1">
+        <h4><span>注文履歴詳細</span></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-7">
+        <table>
+          <tbody>
+            <tr>
+              <td>購入者</td>
+              <td>
+                <u><%= link_to @order.customer.join_name, admin_customer_path(@order), class:"text-dark"  %></u>
+              </td>
+            </tr>
+            <tr>
+              <td>注文日</td>
+              <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+            </tr>
+            <tr>
+              <td>配送先</td>
+              <td>
+                <span>〒<%= @order.postcode %> <%= @order.address %></span><br>
+                <span><%= @order.address_name %></span>
+              </td>
+            </tr>
+            <tr>
+              <td>支払方法</td>
+              <td><%= @order.payment_method %></td>
+            </tr>
+            <tr>
+              <td>注文ステータス</td>
+              <td>
+                <div class="form-group">
+                  <%= form_with url: admin_order_path(@order), class:"form-inline" do |f| %>
+                    <% if @order.status == "入金待ち" %>
+                      <%= f.select :order_status, [["入金待ち", "入金待ち"], ["入金確認", "入金確認"]], {}, class:"form-control" %>
+                    <% elsif @order.status == "入金確認" %>
+                      <%= f.select :order_status, [["入金確認", "入金確認"]], {}, class:"form-control" %>
+                    <% elsif @order.status == "製作中" %>
+                      <%= f.select :order_status, [["製作中", "製作中"]], {}, class:"form-control" %>
+                    <% elsif @order.status == "発送準備中" %>
+                      <%= f.select :order_status, [["発送準備中", "発送準備中"], ["発送済み", "発送済み"]], {}, class:"form-control" %>
+                    <% elsif @order.status == "発送済み" %>
+                      <%= f.select :order_status, [["発送済み", "発送済み"]], {}, class:"form-control" %>
+                    <% end %>
+
+                    <%= f.submit '更新', class:"btn btn-success ml-4" %>
+                  <% end %>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-md-7'>
+        <div class="table-responsive">
+          <table class='table'>
+            <thead>
+              <tr>
+                <th>商品名</th>
+                <th>単価（税込）</th>
+                <th>数量</th>
+                <th>小計</th>
+                <th>製作ステータス</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @order_details.each do |order_detail| %>
+                <tr>
+                  <td><%= order_detail.item.name %></td>
+                  <td><%= ( order_detail.price.to_i / order_detail.quantity.to_i ).to_s(:delimited) %></td>
+                  <td><%= order_detail.quantity %></td>
+                  <td><%= order_detail.price.to_s(:delimited) %></td>
+                  <td>
+                    <%= form_with url: admin_order_list_path(order_detail.id), class:"form-inline" do |f| %>
+                      <% if order_detail.status == "着手不可" %>
+                        <%= f.select :order_detail_status, [["着手不可", "着手不可"]], {}, class:"form-control" %>
+                      <% elsif order_detail.status == "製作待ち" %>
+                        <%= f.select :order_detail_status, [["製作待ち", "製作待ち"],["製作中", "製作中"]], {}, class:"form-control" %>
+                      <% elsif order_detail.status == "製作中" %>
+                        <%= f.select :order_detail_status, [["製作中", "製作中"],["製作完了", "製作完了"]], {}, class:"form-control" %>
+                      <% elsif order_detail.status == "製作完了" %>
+                        <%= f.select :order_detail_status, [["製作完了", "製作完了"]], {}, class:"form-control" %>
+                      <% end %>
+                      <%= f.submit '更新', class:"btn btn-success ml-4" %>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class='col-md-3'>
+        <div class="table-responsive">
+          <table class='table table-borderless'>
+            <tbody>
+              <tr>
+                <td>商品合計</td>
+                <td><%= @order.total_price.to_s(:delimited) %>円</td>
+              </tr>
+              <tr>
+                <td>送料</td>
+                <td><%= @order.postage.to_s(:delimited) %>円</td>
+              </tr>
+              <tr>
+                <td>請求額合計</td>
+                <td><%=@order.amount_including_shipping.to_s(:delimited) %>円</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
