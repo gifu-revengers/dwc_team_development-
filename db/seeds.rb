@@ -13,9 +13,9 @@
       first_name: "太郎#{n + 1}",
       last_name_kana: "タナカ#{n + 1}",
       first_name_kana: "タロウ#{n + 1}",
-      postcode: "000-000#{n + 1}",
+      postcode: "000000#{n + 1}",
       address: "田中の住所#{n + 1}",
-      phone_number: "000-0000-000#{n + 1}"
+      phone_number: "0000000000#{n + 1}"
     )
 
 
@@ -43,7 +43,7 @@
       name: "ケーキ#{n + 1}",
       caption: "このケーキは#{n + 1}番目に美味しい！",
       price: (n + 1) * 1000,
-      item_image_id: "aa.jpg",
+      item_image: open("app/assets/images/no_image.jpg")
     )
 
     OrderDetail.create!(
@@ -62,7 +62,7 @@
 
     ShippingAddress.create!(
       customer_id: n + 1,
-      postcode: "000-000#{n + 1}",
+      postcode: "000000#{n + 1}",
       address: "住所#{n + 1}",
       address_name: "宛名#{n + 1}"
     )
