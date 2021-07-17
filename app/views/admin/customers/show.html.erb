@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
     <div class="mx-2 col-8">
-      <h2><span class="viewtitle"><%= @customer.join_name %>さんの会員詳細</span></h2>
+      <h2><span class="bg-secondary"><%= @customer.join_name %>さんの会員詳細</span></h2>
       <table class="table table-borderless">
         <tbody>
           <tr>
@@ -36,9 +36,9 @@
             <td>会員ステータス</td>
             <td>
               <% if @customer.is_deleted %>
-                <p class="withdrawal"><%= "退会" %></p>
+                <p class="text-secondary"><%= "退会" %></p>
               <% else %>
-                <p class="active"><%= "有効" %></p>
+                <p class="text-success"><%= "有効" %></p>
             	<% end %>
             </td>
           </tr>
