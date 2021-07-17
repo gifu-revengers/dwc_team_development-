@@ -34,4 +34,13 @@ class Order < ApplicationRecord
     self.total_price + self.postage
   end
 
+  #紐づく商品名を返す
+  def detail_items
+    arry = []
+    OrderDetail.where(order_id: self.id).each do |order_detail|
+      arry.push(order_detail.item.name)
+    end
+    return arry
+  end
+
 end
