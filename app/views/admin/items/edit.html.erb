@@ -1,0 +1,54 @@
+<div class="container mt-5 mb-5">
+  <div class="row mb-4">
+    <h2>商品新規登録</h2>
+  </div>
+
+  <%= form_with model: @item, url:admin_item_path(@item), local: true do |f| %>
+    <div class="form_group row ml-10 mb-2">
+      <%= f.label :商品画像, class:"col-sm-2 col-form-label" %>
+        <
+      　  <%= f.attachment_field :item_image %>
+        </div>
+  　</div>
+
+    <div class="form_group row ml-10 mb-2">
+      <%= f.label :商品名, class:"col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :name, size:"60" %>
+      </div>
+  　</div>
+
+    <div class="form_group row ml-10 mb-2">
+      <%= f.label :商品説明, class:"col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_area :caption, size:"60x10" %>
+      </div>
+  　 </div>
+
+    <div class="form_group row ml-10 mb-2">
+      <%= f.label :ジャンル, class:"col-sm-2 col-form-label"%>
+      <div class="col-sm-10">
+        <%= f.select :genre_id, @genrus.map{ |genru| [genru.name, genru.id] }, :prompt => "〜ジャンルを選択してください〜" %>
+      </div>
+  　</div>
+
+    <div class="form_group row ml-10 mb-2">
+      <%= f.label :税抜価格, class:"col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.text_field :price %>円
+      </div>
+  　 </div>
+
+    <div class="form_group row ml-10 mb-2">
+      <%= f.label :販売ステータス, class:"col-sm-2 col-form-label" %>
+      <div class="col-sm-10">
+        <%= f.radio_button :is_active, "true" %>販売中
+        <%= f.radio_button :is_active, "false", class:"ml-5"%>販売停止中
+      </div>
+  　</div>
+
+    <div class="row text-center">
+      <%= f.submit '新規登録', class:"btn btn-success"%>
+    </div>
+  <% end %>
+</div>
