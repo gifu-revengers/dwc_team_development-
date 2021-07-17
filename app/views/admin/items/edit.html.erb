@@ -3,10 +3,10 @@
     <h2>商品新規登録</h2>
   </div>
 
-  <%= form_with model: @item, url:admin_item_path(@item), local: true do |f| %>
+  <%= form_with model: @item, url:admin_items_path, local: true do |f| %>
     <div class="form_group row ml-10 mb-2">
       <%= f.label :商品画像, class:"col-sm-2 col-form-label" %>
-        <
+        <div class="col-sm-10">
       　  <%= f.attachment_field :item_image %>
         </div>
   　</div>
@@ -42,12 +42,14 @@
     <div class="form_group row ml-10 mb-2">
       <%= f.label :販売ステータス, class:"col-sm-2 col-form-label" %>
       <div class="col-sm-10">
-        <%= f.radio_button :is_active, "true" %>販売中
-        <%= f.radio_button :is_active, "false", class:"ml-5"%>販売停止中
+        <%= f.radio_button :is_active, :true %>
+        <%= f.label :is_active, "販売中", {value: :true, style: "display: inline;"} %>
+        <%= f.radio_button :is_active, :false, class:"ml-5"%>
+        <%= f.label :is_active, "販売停止中", {value: :false, style: "display: inline;"}%>
       </div>
   　</div>
 
-    <div class="row text-center">
+    <div class="col text-center">
       <%= f.submit '新規登録', class:"btn btn-success"%>
     </div>
   <% end %>
