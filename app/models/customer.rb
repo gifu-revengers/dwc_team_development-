@@ -4,6 +4,16 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  with_options presence: true do
+    validates :last_name
+    validates :first_name
+    validates :last_name_kana
+    validates :first_name_kana
+    validates :postcode
+    validates :address
+    validates :phone_number
+  end
+
   validates :postcode, format: {with: /\A[0-9]{7}\z/}
   validates :phone_number, format: {with: /\A[0-9]{10,11}\z/}
 
