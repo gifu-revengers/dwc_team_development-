@@ -1,17 +1,5 @@
 Rails.application.routes.draw do
-
-  devise_for :admin, controllers: {
-    sessions: 'admin/sessions',
-    passwords: 'admin/passwords',
-    registrations: 'admin/registrations'
-  }
-
-  devise_for :customers, controllers: {
-    sessions: 'customers/sessions',
-    passwords: 'customers/passwords',
-    registrations: 'customers/registrations'
-  }
-
+  
   scope module: 'public' do
 
     root 'homes#top'
@@ -45,4 +33,16 @@ Rails.application.routes.draw do
     resources  :orders,      only:[:index,:show,:update]
     resources  :order_lists, only:[:update]
   end
+
+  devise_for :admin, controllers: {
+    sessions: 'admin/sessions',
+    passwords: 'admin/passwords',
+    registrations: 'admin/registrations'
+  }
+
+  devise_for :customers, controllers: {
+    sessions: 'customers/sessions',
+    passwords: 'customers/passwords',
+    registrations: 'customers/registrations'
+  }
 end
