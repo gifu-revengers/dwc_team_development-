@@ -21,9 +21,4 @@ class Item < ApplicationRecord
     (price * tax).round
   end
 
-# 商品のステータスを
-  def status
-    is_active ? '販売中' : '販売停止中'
-  end
-
 end
