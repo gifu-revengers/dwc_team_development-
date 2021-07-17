@@ -1,0 +1,17 @@
+<div class="form-group">
+  <%= form_with url: admin_order_path(order), class:"form-inline", method: :PATCH,  remote: true do |f| %>
+    <% if order.status == "入金待ち" %>
+      <%= f.select :order_status, [["入金待ち", "入金待ち"], ["入金確認", "入金確認"]], {}, class:"form-control" %>
+    <% elsif order.status == "入金確認" %>
+      <%= f.select :order_status, [["入金確認", "入金確認"]], {}, class:"form-control" %>
+    <% elsif order.status == "製作中" %>
+      <%= f.select :order_status, [["製作中", "製作中"]], {}, class:"form-control" %>
+    <% elsif order.status == "発送準備中" %>
+      <%= f.select :order_status, [["発送準備中", "発送準備中"], ["発送済み", "発送済み"]], {}, class:"form-control" %>
+    <% elsif order.status == "発送済み" %>
+      <%= f.select :order_status, [["発送済み", "発送済み"]], {}, class:"form-control" %>
+    <% end %>
+
+    <%= f.submit '更新', class:"btn btn-success ml-4" %>
+  <% end %>
+</div>
