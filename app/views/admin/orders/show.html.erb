@@ -1,84 +1,82 @@
-<main>
-  <div class="container">
-    <div class="row">
-      <div class="col offset-1">
-        <h4><span>注文履歴詳細</span></h4>
+<div class="container">
+  <div class="row">
+    <div class="col offset-1">
+      <h4><span>注文履歴詳細</span></h4>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <table>
+        <tbody>
+          <tr>
+            <td>購入者</td>
+            <td>
+              <u><%= link_to @order.customer.join_name, admin_customer_path(@order), class:"text-dark"  %></u>
+            </td>
+          </tr>
+          <tr>
+            <td>注文日</td>
+            <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+          </tr>
+          <tr>
+            <td>配送先</td>
+            <td>
+              <span>〒<%= @order.postcode %> <%= @order.address %></span><br>
+              <span><%= @order.address_name %></span>
+            </td>
+          </tr>
+          <tr>
+            <td>支払方法</td>
+            <td><%= @order.payment_method %></td>
+          </tr>
+          <tr>
+            <td>注文ステータス</td>
+            <td id="admin_orders_show_order_status">
+              <%= render 'order_status', order: @order %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-8'>
+      <div class="table-responsive">
+        <table class='table'>
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>単価（税込）</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th>製作ステータス</th>
+            </tr>
+          </thead>
+          <tbody id="admin_orders_show_order_detail_status">
+            <%= render 'order_detail_status', order_details: @order_details %>
+          </tbody>
+        </table>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-7">
-        <table>
+    <div class='col-md-3'>
+      <div class="table-responsive">
+        <table class='table table-borderless'>
           <tbody>
             <tr>
-              <td>購入者</td>
-              <td>
-                <u><%= link_to @order.customer.join_name, admin_customer_path(@order), class:"text-dark"  %></u>
-              </td>
+              <td>商品合計</td>
+              <td><%= @order.total_price.to_s(:delimited) %>円</td>
             </tr>
             <tr>
-              <td>注文日</td>
-              <td><%= @order.created_at.strftime("%Y/%m/%d") %></td>
+              <td>送料</td>
+              <td><%= @order.postage.to_s(:delimited) %>円</td>
             </tr>
             <tr>
-              <td>配送先</td>
-              <td>
-                <span>〒<%= @order.postcode %> <%= @order.address %></span><br>
-                <span><%= @order.address_name %></span>
-              </td>
-            </tr>
-            <tr>
-              <td>支払方法</td>
-              <td><%= @order.payment_method %></td>
-            </tr>
-            <tr>
-              <td>注文ステータス</td>
-              <td id="admin_orders_show_order_status">
-                <%= render 'order_status', order: @order %>
-              </td>
+              <td>請求額合計</td>
+              <td><%=@order.amount_including_shipping.to_s(:delimited) %>円</td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <div class='row'>
-      <div class='col-md-8'>
-        <div class="table-responsive">
-          <table class='table'>
-            <thead>
-              <tr>
-                <th>商品名</th>
-                <th>単価（税込）</th>
-                <th>数量</th>
-                <th>小計</th>
-                <th>製作ステータス</th>
-              </tr>
-            </thead>
-            <tbody id="admin_orders_show_order_detail_status">
-              <%= render 'order_detail_status', order_details: @order_details %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class='col-md-3'>
-        <div class="table-responsive">
-          <table class='table table-borderless'>
-            <tbody>
-              <tr>
-                <td>商品合計</td>
-                <td><%= @order.total_price.to_s(:delimited) %>円</td>
-              </tr>
-              <tr>
-                <td>送料</td>
-                <td><%= @order.postage.to_s(:delimited) %>円</td>
-              </tr>
-              <tr>
-                <td>請求額合計</td>
-                <td><%=@order.amount_including_shipping.to_s(:delimited) %>円</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
   </div>
-</main>
+</div>
