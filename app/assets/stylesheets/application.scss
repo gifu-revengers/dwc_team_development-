@@ -17,6 +17,10 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+ body{
+   font-family: Courier;
+ }
+
  footer{
    width :100%;
    text-align :center;
@@ -34,5 +38,147 @@
    color :#ffffff;
    line-height :100px;
  }
-  
+
+//ヘッダー//
+//アイコン
+.nav-item{
+  display: block;
+  padding: 0 10px;
+  background:white;
+  float:left;
+  /* カーソルを離した際のアニメーションの速度調整 */
+  transition:.2s all;
+}
+
+.nav-link{
+  padding-top: 0;
+}
+
+.navbar:hover .nav-item{
+  /* ナビゲーションをマウスオーバーした際のアニメーションの動きを指定 */
+  opacity:.5;
+  /* 全てのボタンが少し小さくなる */
+  transform: scale(.98);
+
+  &:hover{
+    transition: .5s;
+    /* hover時の速度調整 */
+    transform:scale(1.2);
+    /* hoverしたボタンのみサイズを拡大する指定 */
+    opacity:1;
+  }
+}
+
+
+//ハンバーガーメニュー
+.navbar-toggler{
+  border-color: #38305f;
+}
+.navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(56,48,95,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+//検索フォーム
+.search_form{
+  position       : relative;
+  width          : 200px;              /* BOXの幅               */
+  height         : 40px;               /* BOXの高さ             */
+  letter-spacing : 0.1em;              /* 文字間隔              */
+  font-weight    : bold;               /* 太字                  */
+  line-height    : 0;                  /* 標準の行高さ          */
+}
+
+.search_form_text{
+  position       : absolute;
+  display        : block;              /* ブロック化            */
+  box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+  height         : 40px;               /* BOXの高さ             */
+  width          : 100%;               /* テキスト入力の幅      */
+  margin         : 0;                  /* 外余白                */
+  padding        : 0 45px 0 8px;       /* 内余白                */
+  border         : 2px solid #666;     /* 枠線　幅,実践,色      */
+  border-radius  : 6px;                /* 角丸                  */
+  color          : #333;               /* 文字色                */
+  font-size      : 18px;               /* フォントサイズ        */
+  outline        : 0;                  /* 入力の薄い枠を非表示  */
+}
+
+.search_form_btn{
+  position       : absolute;
+  box-sizing     : border-box;         /* 枠線,余白を含んだ長さ */
+  height         : 28px;               /* 入力の高さ            */
+  margin         : 0;                  /* 外余白                */
+  padding        : 6px 10px;           /* 内余白                */
+  top            : 6px;                /* ボタン表示位置(上)    */
+  right          : 6px;                /* ボタン表示位置(右)    */
+  border         : none;               /* 枠線　幅,実践,色      */
+  border-radius  : 6px;                /* 右上下の角丸          */
+  background     : #666;               /* ボタンの色            */
+  color          : #fff;               /* 文字色                */
+  cursor         : pointer;            /* カーソル設定          */
+
+  &:hover{
+    background    : #333;               /* フォーカス時の背景色  */
+  }
+}
+
+// TOPページ//
+//ローディング画面
+.loading {
+ 	width: 100%;
+ 	height: 100%;
+ 	background: #d9d9d9;
+ 	position: fixed;
+ 	top: 0;
+ 	left: 0;
+ 	z-index: 20000;
+}
+
+//メイン画像
+.main_visual{
+  position: relative;
+}
+
+.main_visual_image{
+  width: 100%;
+  height: 500px;
+  background-image: image-url('sample2.jpg')
+}
+
+.main_visual_top{
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 200px 200px 0 0;
+  border-color: #ffffff transparent transparent transparent;
+}
+.main_visual_under{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 200px 200px;
+  border-color: transparent transparent #ffffff transparent;
+}
+
+.main_visual_title{
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  font-size: 60px;
+  text-align: right;
+  margin-bottom: 0;
+  color: #444444;
+}
+
+
+//メインの説明
+.main_opinion{
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
 
