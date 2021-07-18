@@ -1,62 +1,54 @@
-<div class="container mt-5 mb-5">
-  <div class="row mb-3">
-    <h2>商品詳細</h2>
-  </div>
+<%= render 'layouts/errors', obj: @shipping_address %>
 
-  <div class="card mb-3" style="max-width: 1000px;">
-    <div class="row g-0">
-      <div class="col-7">
-        <%= attachment_image_tag @item, :item_image, fallback:"cake_role.jpeg", hight:"100%", width:"100%" %>
-      </div>
-      <div class="col-5">
-        <div class="card-body mt-4">
+<div class="container mb-5 mt-5">
+  <h2 class=mb-5>配送先登録 / 一覧</h2>
 
-          <div class="row mb-3">
-            <label class="col-sm-6">商品名</label>
-            <div class="col-sm-6">
-              <%= @item.name %>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <label class="col-sm-6">商品説明</label>
-            <div class="col-sm-6">
-              <%= @item.caption %>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <label class="col-sm-6">ジャンル名</label>
-            <div class="col-sm-6">
-              <%= @item.genre.name %>
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <label class="col-sm-6">税込価格(税抜価格)</label>
-            <div class="col-sm-6">
-              <%= @item.tax_include %>(<%= @item.price %>)
-            </div>
-          </div>
-
-          <div class="row mb-3">
-            <label class="col-sm-6">販売ステータス</label>
-            <div class="col-sm-6">
-              <% if @item.is_active %>
-                <p class="text-success">販売中</p>
-              <% else %>
-                <p class:"text-secondary">販売停止</p>
-              <% end %>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-4 offset-sm-6">
-              <%= link_to "編集する", edit_admin_item_path(@item), class:"btn btn-success" %>
-            </div>
-          </div>
-        </div>
+  <%= form_with model: @shipping_address, local: true do |f| %>
+    <div class="form_group row ml-10 mb-2">
+      <%= f.label :郵便番号（ハイフン無し）, class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :postcode, placeholder:"0000000" %>
       </div>
     </div>
+
+
+    <div class="form_group row ml-10 mb-2">
+      <%= f.label :住所, class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-9">
+        <%= f.text_field :address, size:"60", placeholder:"東京都渋谷区代々木神園町0-0" %>
+      </div>
+    </div>
+
+    <div class="form_group row ml-10 mb-2">
+      <%= f.label :宛名, class:"col-sm-3 col-form-label" %>
+      <div class="col-sm-6">
+        <%= f.text_field :address_name, placeholder:"令和道子" %>
+      </div>
+      <%= f.submit "新規登録", class:"btn btn-success" %>
+    </div>
+  <% end %>
+
+  <div class="mt-5">
+    <table class="table text-center">
+      <thead class="thead-light">
+        <tr>
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>宛名</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @shipping_addresses.each do |shipping_address| %>
+        <tr>
+          <td><%= shipping_address.postcode %></td>
+          <td><%= shipping_address.address %></td>
+          <td><%= shipping_address.address_name %></td>
+          <td><%= link_to "編集する", edit_shipping_address_path(shipping_address), class:"btn btn-success" %></td>
+          <td><%= link_to "削除する", shipping_address_path(shipping_address), method: :delete, class:"btn btn-danger" %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
