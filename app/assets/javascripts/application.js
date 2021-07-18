@@ -18,3 +18,14 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(function () {
+	$('#zip').jpostal({
+		postcode : [
+			'#zip'
+		],
+		address : {
+			'#address' : '%3%4%5'
+		}
+	});
+});
