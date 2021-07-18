@@ -6,10 +6,10 @@ class Public::ShippingAddressesController < ApplicationController
   end
 
   def create
+    @shipping_addresses = current_customer.shipping_addresses.all
     @shipping_address = ShippingAddress.new(shipping_address_params)
-    @shipping_address.customer_id = current_user.id
+    @shipping_address.customer_id = current_customer.id
     @shipping_address.save
-    redirect_to request.referer
   end
 
   def edit
@@ -23,8 +23,8 @@ class Public::ShippingAddressesController < ApplicationController
   end
 
   def destroy
+    @shipping_addresses = current_customer.shipping_addresses.all
     ShippingAddress.find(params[:id]).destroy
-    redirect_to request.referer
   end
 
   private
