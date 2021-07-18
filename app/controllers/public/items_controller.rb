@@ -5,7 +5,14 @@ class Public::ItemsController < ApplicationController
     search = params[:search_word]
     genre = params[:genre]
     if search
-      @items = Item.where(['name like(?)', "%#{search}%"]).page(params[:page]).per(10)
+      search_words = search.split(/[[:blank:]]+/)
+      items = []
+      search_words.each do |search_word|
+        next if search_word == ""
+        items += Item.where(['name like(?)', "%#{search_word}%"])
+      end
+      items.uniq!
+      @items = Kaminari.paginate_array(items).page(params[:page]).per(10)
       @title = search
     elsif genre
       @items = Item.where(genre_id: genre).page(params[:page]).per(10)
