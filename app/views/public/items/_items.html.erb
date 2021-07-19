@@ -6,7 +6,7 @@
           <%= attachment_image_tag item, :item_image, :fill, 100, 100, fallback:"cake_role.jpeg", class:"bd-placeholder-img card-img-top" %>
           <div class="card-body">
             <h5 class="card-title"><%= item.name %></h5>
-            <p class="card-text"><%= number_to_currency(item.price, unit: "¥", strip_insignificant_zeros: true) %></p>
+            <p class="card-text"><%= number_to_currency(item.price, unit: "¥", strip_insignificant_zeros: true, format: "%u%n") %></p>
             <%= link_to item_path(item), class:"push_btn" do %>
               <span>商品詳細</span>
             <% end %>

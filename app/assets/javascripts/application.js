@@ -20,9 +20,7 @@
 //= require_tree .
 
 $(document).on('turbolinks:load',function(){
-  $(".fadeInLeft").addClass("is-show");
-  $(".fadeInRight").addClass("is-show");
-  $(".fadeInDown").hide().fadeIn(3000);
+  $(".fadeInDown").hide().fadeIn(4000);
 });
 
 // スクロールのフェードイン

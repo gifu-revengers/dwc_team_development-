@@ -314,7 +314,8 @@
   top: 50%;
 }
 
-// aboutのmain
+
+// aboutのmain画像
 #amv{
   position: absolute;
   top: 0;
@@ -338,28 +339,6 @@
   color: gold;
 }
 
-// 右からフェードイン
-.fadeInRight {
-  opacity: 0;
-  transform: translate(50%, 0);
-  transition: 5s;
-}
-.fadeInRight.is-show {
-  transform: translate(0, 0);
-  opacity: 1;
-}
-
-// 左からフェードイン
-.fadeInLeft {
-  opacity: 0;
-  transform: translate(-50%, 0);
-  transition: 5s;
-}
-.fadeInLeft.is-show {
-  transform: translate(0, 0);
-  opacity: 1;
-}
-
 // 商品背景とコメント
 .items_loop{
   margin-top: 200px;
@@ -367,9 +346,9 @@
   height: 700px;
   background-color: orange;
   position: relative;
-  opacity: 0.6;
   display: flex;
   align-items: flex-end;
+  opacity: 0.7;
 }
 
 .view_comment{
@@ -389,7 +368,7 @@
     position: absolute;
     left: 30px;
     top: 35px;
-    z-index: -1;
+    z-index: 1;
 }
 
 .items_loop::before {
@@ -402,7 +381,7 @@
     position: absolute;
     left: 230px;
     top: 83px;
-    z-index: -1;
+    z-index: 1;
 }
 
 // 商品スライドショー
@@ -411,6 +390,7 @@
   display: flex;
   width: 100vw;
   overflow: hidden;
+  z-index: 2;
 }
 
 .loop_wrap ul {
