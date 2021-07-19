@@ -1,0 +1,19 @@
+<div class="items_view">
+  <div class="d-flex bd-highlight">
+    <% items.each do |item| %>
+      <div class="card ml-2" style="width: 18rem;">
+        <div class="p-2 flex-fill bd-highlight">
+          <%= link_to item_path(item) do %>
+            <%= attachment_image_tag item, :item_image, :fill, 60, 60, fallback:"cake_role.jpeg", class:"bd-placeholder-img card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-title"><%= item.name %></h5>
+              <p class="card-text"><%= number_to_currency(item.price, unit: "¥", strip_insignificant_zeros: true) %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= paginate @items %>
+  </div>
+</div>
