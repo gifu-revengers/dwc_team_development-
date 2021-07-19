@@ -13,4 +13,10 @@ class OrderDetail < ApplicationRecord
     validates :status
   end
 
+  #追加メソッド
+
+  #単価を返す
+  def unit_price
+    self.price / self.quantity
+  end
 end
