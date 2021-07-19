@@ -1,18 +1,4 @@
 <%= render 'layouts/errors', obj: @shipping_address %>
-<div class='container'>
-  <div class='row mt-3'>
-    <div class='col'>
-      <% if @order.errors.any? %>
-        <h4><%= @order.errors.count %>件のエラーが発生しました。</h4>
-        <ul>
-          <% @order.errors.full_messages.each do|message2| %>
-            <li><%= message2 %></li>
-          <% end %>
-        </ul>
-      <% end %>
-    </div>
-  </div>
-</div>
 
 
 <div class="container mt-5">
