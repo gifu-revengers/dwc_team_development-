@@ -35,4 +35,8 @@ class Customer < ApplicationRecord
     super && (self.is_deleted == false)
   end
 
+  def join_address
+    "〒" + self.postcode + " " + self.address
+  end
+
 end
