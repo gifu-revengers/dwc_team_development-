@@ -44,32 +44,34 @@
       </div>
     </div>
   </div>
-
-  <div class="row mt-4 fadein fadein-bottom">
-    <div class="col-xs-8 col-lg-4 col-xl-3 text-center text-lg-left">
-      <%= render "public/homes/genre_search", genres: @genres %>
-    </div>
-    <div class="col-xs-12 col-lg-8 col-xl-9 text-center text-lg-left">
-      <h5 class="both-line mt-5 mt-lg-0">新着商品</h5>
-      <div class="d-flex bd-highlight">
-        <% @items.each do |item| %>
-          <div class="card mr-2" style="width: 12rem;">
-            <div class="p-2 flex-fill bd-highlight">
-              <%= attachment_image_tag item, :item_image, :fill, 100, 100, fallback:"cake_role.jpeg", class:"bd-placeholder-img card-img-top" %>
-              <div class="card-body">
-                <h5 class="card-title"><%= item.name %></h5>
-                <p class="card-text"><%= number_to_currency(item.price, unit: "¥", strip_insignificant_zeros: true) %></p>
-                <%= link_to item_path(item), class:"push_btn" do %>
-                  <span>商品詳細</span>
-                <% end %>
+ 
+  <div class="items_view">
+    <div class="row mt-4 fadein fadein-bottom">
+      <div class="col-xs-8 col-lg-4 col-xl-3 text-center text-lg-left">
+        <%= render "public/homes/genre_search", genres: @genres %>
+      </div>
+      <div class="col-xs-12 col-lg-8 col-xl-9 text-center text-lg-left">
+        <h5 class="both-line mt-5 mt-lg-0">新着商品</h5>
+        <div class="d-flex bd-highlight">
+          <% @items.each do |item| %>
+            <div class="card mr-2" style="width: 12rem;">
+              <div class="p-2 flex-fill bd-highlight">
+                <%= attachment_image_tag item, :item_image, :fill, 100, 100, fallback:"cake_role.jpeg", class:"bd-placeholder-img card-img-top" %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= item.name %></h5>
+                  <p class="card-text"><%= number_to_currency(item.price, unit: "¥", strip_insignificant_zeros: true) %></p>
+                  <%= link_to item_path(item), class:"push_btn" do %>
+                    <span>商品詳細</span>
+                  <% end %>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
-      </div>
+          <% end %>
+        </div>
 
-      <div class="col text-right mb-4">
-        <%= link_to "全ての商品を見る", items_path, class:"link_animation" %>
+        <div class="col text-right mb-4">
+          <%= link_to "全ての商品を見る", items_path, class:"link_animation" %>
+        </div>
       </div>
     </div>
   </div>
