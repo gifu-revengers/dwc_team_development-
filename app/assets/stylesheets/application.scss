@@ -17,13 +17,10 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
- body{
-   font-family: Courier;
- }
 
- footer{
-   width :100%;
-   text-align :center;
+// 全般 //
+ body{
+  font-family: "Courier", "Meiryo", "sans-serif";
  }
 
  .flash{
@@ -34,10 +31,120 @@
    color :#ff0000;
  }
 
- .welcome_customer{
-   color :#ffffff;
-   line-height :100px;
+// 両サイドを-で装飾する
+ .both-line{
+  position: relative;
+  display: inline-block;
+  padding: 0 55px;
+
+  &:before, &:after{
+    content: '';
+    position: absolute;
+    top: 50%;
+    display: inline-block;
+    width: 45px;
+    height: 1px;
+    background-color: black;
+  }
+  &:before{
+    left: 0;
+  }
+  &:after{
+    right: 0;
+  }
  }
+
+// リンクの下線をアニメーションする
+.link_animation{
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  color: #000000;
+  text-decoration: none;
+  &:hover{
+    color: #000000;
+    text-decoration: none;
+  }
+  &:after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    transform: translate(-100%, 0);
+    transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.4s;
+    content: "";
+  }
+  &:hover:after{
+    transform: translate(0, 0);
+  }
+}
+
+// ふわっと浮き出した押せるボタン
+.push_btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  background: #fff;
+  position: relative;
+
+  span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    box-sizing: border-box;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    box-shadow: 0px 5px 12px #CAD4E2, -6px -6px 12px #FFF;
+    border-radius: 10px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    transition-duration: 0.2s;
+  }
+
+  &:hover span{
+    left: 0;
+    top: 0;
+    box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+  }
+}
+
+// フェードイン //
+.scroll-space{
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.fadein {
+    opacity: 0;
+    transform: translate(0,0);
+    transition: all 1.5s;
+  &.fadein-left{
+      transform: translate(-30px,0);
+  }
+  &.fadein-right{
+      transform: translate(30px,0);
+  }
+  &.fadein-up{
+      transform: translate(0,-30px);
+  }
+  &.fadein-bottom{
+      transform: translate(0,30px);
+  }
+  &.scrollin{
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+  }
+}
 
 //ヘッダー//
 //アイコン
@@ -139,10 +246,22 @@
   position: relative;
 }
 
-.main_visual_image{
+.main_visual_image_box{
+  height:500px;
   width: 100%;
-  height: 500px;
+}
+
+.main_visual_image1{
+  background-image: image-url('sample1.jpg')
+}
+.main_visual_image2{
   background-image: image-url('sample2.jpg')
+}
+.main_visual_image3{
+  background-image: image-url('sample3.jpg')
+}
+.main_visual_image4{
+  background-image: image-url('sample4.jpg')
 }
 
 .main_visual_top{
@@ -152,6 +271,7 @@
   border-style: solid;
   border-width: 200px 200px 0 0;
   border-color: #ffffff transparent transparent transparent;
+  z-index:100;
 }
 .main_visual_under{
   position: absolute;
@@ -162,6 +282,7 @@
   border-style: solid;
   border-width: 0 0 200px 200px;
   border-color: transparent transparent #ffffff transparent;
+  z-index:100;
 }
 
 .main_visual_title{
@@ -172,6 +293,7 @@
   text-align: right;
   margin-bottom: 0;
   color: #444444;
+  z-index: 101;
 }
 
 
@@ -181,4 +303,8 @@
   margin-bottom: 100px;
 }
 
-
+//フッター//
+ footer{
+   width :100%;
+   text-align :center;
+ }
