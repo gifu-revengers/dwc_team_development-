@@ -11,4 +11,9 @@ class ShippingAddress < ApplicationRecord
 
   validates :postcode, format: {with: /\A[0-9]{7}\z/}
 
+# 追加メソッド
+  def join_address
+    "〒" + self.postcode + " " + self.address + " " + self.address_name
+  end
+
 end

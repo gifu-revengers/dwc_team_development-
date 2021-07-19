@@ -17,6 +17,8 @@ class Order < ApplicationRecord
   belongs_to :customer
   has_many :order_details, dependent: :destroy
 
+  attr_accessor :shipping_sel,:shipping_address_id
+
   #追加メソッド
 
   #注文個数の合計を返す

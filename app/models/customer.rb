@@ -30,4 +30,8 @@ class Customer < ApplicationRecord
     self.last_name_kana + " " + self.first_name_kana
   end
 
+  def join_address
+    "〒" + self.postcode + " " + self.address
+  end
+
 end
