@@ -30,13 +30,18 @@ class Customer < ApplicationRecord
     self.last_name_kana + " " + self.first_name_kana
   end
 
+  def join_address
+    "〒" + self.postcode + " " + self.address
+  end
+
   #退会していたらtrueを返す
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
 
-  def join_address
-    "〒" + self.postcode + " " + self.address
+  #すでに商品をカートに入れているか確認
+  def item_include?(item)
+    cart_items.where(item_id: item.id).exists?
   end
 
 end

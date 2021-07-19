@@ -6,8 +6,10 @@ class Public::ShippingAddressesController < ApplicationController
   end
 
   def create
+    @shipping_addresses = current_customer.shipping_addresses.all
     @shipping_address = ShippingAddress.new(shipping_address_params)
     @shipping_address.customer_id = current_customer.id
+
     if @shipping_address.save
       flash[:notice] = "配送先新規登録が完了しました"
      redirect_to request.referer
@@ -32,8 +34,8 @@ class Public::ShippingAddressesController < ApplicationController
   end
 
   def destroy
+    @shipping_addresses = current_customer.shipping_addresses.all
     ShippingAddress.find(params[:id]).destroy
-    redirect_to request.referer
   end
 
   private
