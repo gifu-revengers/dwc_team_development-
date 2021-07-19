@@ -73,12 +73,10 @@
                 </li>
               <% end %>
             </ul>
-            <div class="search-form ml-3">
-              <%= form_with scope: :search, url: items_path, method: :get, local: true do |f| %>
-                <%= f.text_field :search_word , class:"search_form_text" %>
-                <%= f.button :type => "submit", class:"search_form_btn" do %>
-                  <i class="fas fa-search search_form_icon"></i>
-                <% end %>
+            <div class="search-form">
+              <%= form_with url: items_path, method: :get, local: true do |f| %>
+                <%=f.text_field :search_word%>
+                <%=f.submit "検索"%>
               <% end %>
             </div>
           </div>
@@ -99,6 +97,8 @@
         <% end %>
       </div>
       <%= yield %>
+      <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+      <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
     </main>
     <div class="container">
       <div class="row">
