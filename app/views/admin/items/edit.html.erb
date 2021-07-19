@@ -1,9 +1,11 @@
+<%= render 'layouts/errors', obj: @item %>
+
 <div class="container mt-5 mb-5">
   <div class="row mb-4">
     <h2>商品新規登録</h2>
   </div>
 
-  <%= form_with model: @item, url:admin_items_path, local: true do |f| %>
+  <%= form_with model: @item, url:admin_item_path, local: true do |f| %>
     <div class="form_group row ml-10 mb-2">
       <%= f.label :商品画像, class:"col-sm-2 col-form-label" %>
         <div class="col-sm-10">
@@ -28,7 +30,7 @@
     <div class="form_group row ml-10 mb-2">
       <%= f.label :ジャンル, class:"col-sm-2 col-form-label"%>
       <div class="col-sm-10">
-        <%= f.select :genre_id, @genrus.map{ |genru| [genru.name, genru.id] }, :prompt => "〜ジャンルを選択してください〜" %>
+        <%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id] }, :prompt => "〜ジャンルを選択してください〜" %>
       </div>
   　</div>
 
