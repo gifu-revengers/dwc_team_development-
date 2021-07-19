@@ -7,7 +7,7 @@
     <div class="form_group row ml-10 mb-2">
       <%= f.label :郵便番号（ハイフン無し）, class:"col-sm-3 col-form-label" %>
       <div class="col-sm-9">
-        <%= f.text_field :postcode, placeholder:"0000000" %>
+        <%= f.text_field :postcode, placeholder:"0000000", id:"zip" %>
       </div>
     </div>
 
@@ -15,7 +15,7 @@
     <div class="form_group row ml-10 mb-2">
       <%= f.label :住所, class:"col-sm-3 col-form-label" %>
       <div class="col-sm-9">
-        <%= f.text_field :address, size:"60", placeholder:"東京都渋谷区代々木神園町0-0" %>
+        <%= f.text_field :address, size:"60", placeholder:"東京都渋谷区代々木神園町0-0", id:"address"%>
       </div>
     </div>
 
