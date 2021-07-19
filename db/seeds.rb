@@ -27,7 +27,7 @@
     Order.create!(
       customer_id: n + 1,
       postage: 800,
-      total_price: (n + 1) * 1000,
+      total_price: (n + 1) * 2000,
       postcode: "000-000#{n + 1}",
       address: "住所#{n + 1}",
       address_name: "宛名#{n + 1}",
@@ -53,6 +53,13 @@
       price: (n + 1) * 1000
     )
 
+    OrderDetail.create!(
+      order_id: n + 1,
+      item_id: n + 1,
+      quantity: n + 1,
+      price: (n + 1) * 1000
+    )
+
     CartItem.create!(
       customer_id: n + 1,
       item_id: n + 1,
@@ -66,4 +73,31 @@
       address: "住所#{n + 1}",
       address_name: "宛名#{n + 1}"
     )
+  end
+
+  5.times do |n|
+    Order.create!(
+      customer_id: n + 1,
+      postage: 800,
+      total_price: (n + 1) * 2000,
+      postcode: "000-000#{n + 1}",
+      address: "住所#{n + 1}",
+      address_name: "宛名#{n + 1}",
+      payment_method: 0
+    )
+
+    OrderDetail.create!(
+      order_id: n + 6,
+      item_id: n + 1,
+      quantity: n + 1,
+      price: (n + 1) * 1000
+    )
+
+    OrderDetail.create!(
+      order_id: n + 6,
+      item_id: 5 - n,
+      quantity: n + 1,
+      price: (n + 1) * 1000
+    )
+
   end
