@@ -5,15 +5,19 @@
   </div>
 
   <%= form_with model: @admin, url: admin_session_path, class:"contact-form" ,local: true do |f| %>
-  
-    <div class="row mt-5 form-field">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"col-8 mx-auto col-lg-5 input-text form-js-input" %>
-      <label for="staticEmail" class="label">Email</label>
+
+    <div class="row mt-5">
+      <div class="col-8 mx-auto col-lg-5 form-field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input-text form-js-input" %>
+        <label for="staticEmail" class="label">Email</label>
+      </div>
     </div>
 
-    <div class="row mt-5  form-field">
-      <%= f.password_field :password, autocomplete: "current-password", class:"col-8 mx-auto col-lg-5 input-text form-js-input" %>
-      <label for="inputPassword" class="label">Password</label>
+    <div class="row mt-3">
+      <div class="col-8 mx-auto col-lg-5 form-field">
+        <%= f.password_field :password, autocomplete: "current-password", class:"input-text form-js-input" %>
+        <label for="inputPassword" class="label">Password</label>
+      </div>
     </div>
 
     <div class="row mt-5 mb-5 form-field">

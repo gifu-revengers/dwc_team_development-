@@ -1,69 +1,91 @@
-<div class="container">
+<div class="container mt-5">
   <div class="row">
-    <div class="col offset-1">
-      <h4>新規会員登録</h4>
-    </div>
+    <div class="col-xs-6 mx-auto"><h4>Sign Up</h4></div>
   </div>
-  <%= form_with model: @customer, url: customer_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-    <%= render "customers/shared/error_messages", resource: resource %>
-    <div class="row">
-      <div class="col-2"><%= f.label "名前", class:"w-100" %></div>
-      <div class="col-1 text-right p-0">(姓)　</div>
-      <div class="col-3"><%= f.text_field :last_name, placeholder: "令和", class:"w-100" %></div>
-      <div class="col-1 text-right p-0">(名)　</div>
-      <div class="col-3"><%= f.text_field :first_name, placeholder: "道子", class:"w-100" %></div>
-    </div>
 
-    <div class="row">
-      <div class="col-2"><%= f.label "フリガナ", class:"w-100" %></div>
-      <div class="col-1 text-right p-0">(セイ)</div>
-      <div class="col-3"><%= f.text_field :last_name_kana, placeholder: "レイワ", class:"w-100" %></div>
-      <div class="col-1 text-right p-0">(メイ)</div>
-      <div class="col-3"><%= f.text_field :first_name_kana, placeholder: "ミチコ", class:"w-100" %></div>
-    </div>
+  <%= form_with model: @customer, url: customer_registration_path, class:"contact-form", local: true do |f| %>
 
-    <div class="row">
-      <div class="col-3"><%= f.label "メールアドレス", class:"w-100" %></div>
-      <div class="col-3"><%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class:"w-100" %></div>
-    </div>
-
-    <div class="row">
-      <div class="col-3"><%= f.label "郵便番号(ハイフンなし)", class:"w-100" %></div>
-      <div class="col-3"><%= f.text_field :postcode, placeholder: "0000000", class:"w-100"%></div>
-    </div>
-
-    <div class="row">
-      <div class="col-3"><%= f.label "住所", class:"w-100" %></div>
-      <div class="col-7"><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", class:"w-100" %></div>
-    </div>
-
-    <div class="row">
-      <div class="col-3"><%= f.label "電話番号(ハイフンなし)", class:"w-100" %></div>
-      <div class="col-3"><%= f.text_field :phone_number, placeholder: "00000000000", class:"w-100" %></div>
-    </div>
-
-    <div class="row">
-      <div class="col-3"><%= f.label "パスワード(6文字以上)", class:"w-100" %></div>
-      <div class="col-3"><%= f.password_field :password, autocomplete: "new-password", class:"w-100" %></div>
-    </div>
-
-    <div class="row">
-      <div class="col-3"><%= f.label "パスワード(確認用)", class:"w-100" %></div>
-      <div class="col-3"><%= f.password_field :password_confirmation, autocomplete: "new-password", class:"w-100" %></div>
-    </div>
-
-    <div class="row mt-3">
-      <div class="col-3"></div>
-      <div class="col-3"><%= f.submit "新規登録", class:"btn btn-success w-100" %></div>
-    </div>
-
-    <div class="row mt-3">
-      <div class="col offset-1">
-        <h4>既に登録済みの方</h4>
-        <span>　　</span>
-        <span><u><%= render "customers/shared/links" %></u> からログインしてください。</span>
+    <div class="row mt-5 d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-3">
+        <%= f.text_field :last_name, autofocus: true, class:"input-text form-js-input" %>
+        <%= f.label :last_name, "姓", class:"label" %>
+      </div>
+      <div class="form-field col-7 col-lg-3">
+        <%= f.text_field :first_name, class:"input-text form-js-input" %>
+        <%= f.label :first_name, "名", class:"label" %>
       </div>
     </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-3">
+        <%= f.text_field :last_name_kana, class:"input-text form-js-input" %>
+        <%= f.label :last_name_kana, "セイ", class:"label" %>
+      </div>
+      <div class="form-field col-7 col-lg-3">
+        <%= f.text_field :first_name_kana, class:"input-text form-js-input" %>
+        <%= f.label :first_name_kana, "メイ", class:"label" %>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-3">
+        <%= f.email_field :email, autocomplete: "email", class:"input-text form-js-input" %>
+        <%= f.label :emai, "メールアドレス", class:"label" %>
+      </div>
+      <div class=" col-7 col-lg-3"></div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-3">
+        <%= f.text_field :postcode, class:"input-text form-js-input"%>
+        <%= f.label :postcode, "郵便番号(ハイフンなし)", class:"label" %>
+      </div>
+      <div class=" col-7 col-lg-3"></div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-6">
+        <%= f.text_field :address, class:"input-text form-js-input" %>
+        <%= f.label :address, "住所", class:"label" %>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-3">
+        <%= f.text_field :phone_number, class:"input-text form-js-input" %>
+        <%= f.label :phone_number, "電話番号(ハイフンなし)", class:"label" %>
+      </div>
+      <div class=" col-7 col-lg-3"></div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-3">
+        <%= f.password_field :password, autocomplete: "new-password", class:"input-text form-js-input" %>
+        <%= f.label :password, "パスワード(6文字以上)", class:"label" %>
+      </div>
+      <div class=" col-7 col-lg-3"></div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="form-field col-7 col-lg-3">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"input-text form-js-input" %>
+        <%= f.label :password_confirmation, "パスワード(確認用)", class:"label" %>
+      </div>
+      <div class=" col-7 col-lg-3"></div>
+    </div>
+
+    <div class="row mt-5 mb-5 form-field">
+      <%= f.submit "Signup", class:"col-3 mx-auto col-lg-2 submit-btn" %>
+    </div>
   <% end %>
+
+  <div class="row mt-3">
+    <div class="col-xs-6 mx-auto"><h4>＜ 既に登録済みの方 ＞</h4></div>
+  </div>
+
+  <div class="row mt-2 mb-5">
+    <div class="col-12 text-center"><%= render "customers/shared/links" %></div>
+  </div>
+
 </div>
 

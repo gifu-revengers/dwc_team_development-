@@ -184,7 +184,7 @@
 
   .label {
     position: absolute;
-    left: 30%;
+    left: 20px;
     bottom: 11px;
     font-size: 18px;
     line-height: 26px;
@@ -192,10 +192,6 @@
     color: #888;
     cursor: text;
     transition: transform 0.2s ease-in-out;
-
-    @media screen and (max-width: 992px){
-      left: 18%;
-    }
   }
 
   .submit-btn {
