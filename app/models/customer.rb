@@ -35,4 +35,9 @@ class Customer < ApplicationRecord
     super && (self.is_deleted == false)
   end
 
+  #すでに商品をカートに入れているか確認
+  def item_include?(item)
+    cart_items.where(item_id: item.id).exists?
+  end
+
 end

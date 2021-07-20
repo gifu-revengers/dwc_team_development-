@@ -5,8 +5,8 @@
     </div>
 
     <div class="col-9">
-      <% if @genre %>
-        <h2 class="mt-4 mb-4">ジャンル名（全<%= @items.count %>件）</h2>
+      <% if @title %>
+        <h2 class="mt-4 mb-4"><%= @title %>（全<%= @items.count %>件）</h2>
       <% else %>
         <h2 class="mt-4 mb-4">商品一覧（全<%= @items.count %>件）</h2>
       <% end %>
