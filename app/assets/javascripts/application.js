@@ -20,6 +20,10 @@
 //= require_tree .
 
 
+$(document).on('turbolinks:load',function(){
+  $(".fadeInDown").hide().fadeIn(4000);
+});
+
 $(function () {
 	$('#zip').jpostal({
 		postcode : [
