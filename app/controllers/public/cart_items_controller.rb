@@ -6,7 +6,15 @@ class Public::CartItemsController < ApplicationController
   end
 
   def create
-  end
+    @cart_item = current_customer.cart_items.new(cart_item_params)
+    if @cart_item.save
+      flash[:notice] = "カートに追加しました"
+      redirect_to cart_items_path
+    else
+      @item = Item.find_by(id: @cart_item.item_id)
+      @genres = Genre.all
+      render "public/items/show"
+    end
 
   def update
     @cart_items=CartItem.where(customer_id: current_customer)

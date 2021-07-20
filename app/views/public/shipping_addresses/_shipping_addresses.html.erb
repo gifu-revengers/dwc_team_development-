@@ -1,0 +1,26 @@
+<div class="shipping_address_view">
+  <div class="mt-5">
+      <table class="table text-center">
+        <thead class="thead-light">
+          <tr>
+            <th>郵便番号</th>
+            <th>住所</th>
+            <th>宛名</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% shipping_addresses.each do |shipping_address| %>
+          <tr>
+            <td><%= shipping_address.postcode %></td>
+            <td><%= shipping_address.address %></td>
+            <td><%= shipping_address.address_name %></td>
+            <td><%= link_to "編集する", edit_shipping_address_path(shipping_address), class:"btn btn-success" %></td>
+            <td><%= link_to "削除する", shipping_address_path(shipping_address), method: :delete, class:"btn btn-danger", remote: true %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

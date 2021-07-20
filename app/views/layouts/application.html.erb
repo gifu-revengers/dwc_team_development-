@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <script src="https://kit.fontawesome.com/efe3d01fd5.js" crossorigin="anonymous"></script>
+
+
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
   </head>
@@ -20,6 +22,8 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto d-flex align-items-start">
               <li class="nab-link mr-3">
+            <ul class="navbar-nav ml-auto">
+              <div class="text-white">
                 <% if customer_signed_in? %>
                     W e l c o m e , </br>
                     <%= current_customer.join_name %>
@@ -68,8 +72,9 @@
                   <%= link_to "L o g i n", new_customer_session_path, class: "nav-link text-dark" %>
                 </li>
               <% end %>
+
               <li class="search_form">
-                <%= form_with scope: :search, url: items_path, method: :get, local: true do |f| %>
+                <%= form_with url: items_path, method: :get, local: true do |f| %>
                   <%= f.text_field :search_word , class:"search_form_text" %>
                   <%= f.button :type => "submit", class:"search_form_btn" do %>
                     <i class="fas fa-search search_form_icon"></i>
@@ -85,9 +90,9 @@
 
     <main>
       <% if alert %>
-　  　  <p class="alert"><%= alert %></p>
-   　  <% end %>
-      <div class="flash">
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <div class="text-success">
         <% if flash[:notice] %>
           <div class="flash">
             <%= flash[:notice]%>
@@ -95,8 +100,16 @@
         <% end %>
       </div>
       <%= yield %>
+      <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+      <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
     </main>
-    <footer class="foot">CopyRight GifuRevengers.inc</footer>
+    <div class="container">
+      <div class="row">
+        <div class="mx-auto">
+          <footer class="foot">CopyRight GifuRevengers.inc</footer>
+        </div>
+      </div>
+    </div>
 
   </body>
 </html>

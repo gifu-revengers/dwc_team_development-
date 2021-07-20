@@ -18,12 +18,17 @@
               <div class="card-body mt-4">
                 <h1><%= @item.name %></h1>
                 <p class="mb-5"><%= @item.caption %></p>
-                <h5 class="mt-5"><%= number_to_currency(@item.tax_include, unit: "¥", strip_insignificant_zeros: true) %>(税込)</h5>
+                <h5 class="mt-5"><%= number_to_currency(@item.tax_include, unit: "¥", strip_insignificant_zeros: true, format: "%u%n") %>(税込)</h5>
 
               <%= form_with model: @cart_item, local: true do |f| %>
                 <%= f.hidden_field :item_id, value: @item.id %>
                 <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10], :prompt => "個数選択" %>
-                <%= f.submit "カートに入れる", class:"btn btn-success" %>
+                
+                <% if current_customer.item_include?(@item) %>
+                  <%= f.submit "注文数の変更", class:"btn btn-success" %>
+                <% else %>
+                  <%= f.submit "カートに入れる", class:"btn btn-success" %>
+                <% end %>
               <% end %>
             </div>
           </div>

@@ -38,7 +38,7 @@
     <div class="row d-flex justify-content-center">
       <div class="form-field col-7 col-lg-3">
         <%= f.text_field :postcode, class:"input-text form-js-input"%>
-        <%= f.label :postcode, "郵便番号(ハイフンなし)", class:"label" %>
+        <%= f.label :postcode, "郵便番号(ハイフンなし)", id:"zip", class:"label" %>
       </div>
       <div class=" col-7 col-lg-3"></div>
     </div>
@@ -46,7 +46,7 @@
     <div class="row d-flex justify-content-center">
       <div class="form-field col-7 col-lg-6">
         <%= f.text_field :address, class:"input-text form-js-input" %>
-        <%= f.label :address, "住所", class:"label" %>
+        <%= f.label :address, "住所", id:"address", class:"label" %>
       </div>
     </div>
 
