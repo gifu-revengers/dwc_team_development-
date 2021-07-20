@@ -1,4 +1,10 @@
 <div class="items_view">
+  <% if @title %>
+    <h2 class="mt-4 mb-4"><%= @title %>（全<%= @items.count %>件）</h2>
+  <% else %>
+    <h2 class="mt-4 mb-4">商品一覧（全<%= @items.count %>件）</h2>
+  <% end %>
+
   <div class="d-flex bd-highlight">
     <% @items.each do |item| %>
       <div class="card mr-2" style="width: 12rem;">
