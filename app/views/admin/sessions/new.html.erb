@@ -1,10 +1,10 @@
 <div class="container mt-5">
 
   <div class="row">
-    <div class="col-xs-6 mx-auto"><h2>Customer Login</h2></div>
+    <div class="col-xs-6 mx-auto"><h2>Owner Login</h2></div>
   </div>
 
-  <%= form_with model: @customer, url: customer_session_path, class:"contact-form" ,local: true do |f| %>
+  <%= form_with model: @admin, url: admin_session_path, class:"contact-form" ,local: true do |f| %>
 
     <div class="row mt-5">
       <div class="col-8 mx-auto col-lg-5 form-field">
@@ -25,13 +25,5 @@
     </div>
 
   <% end %>
-
-  <div class="row mt-3">
-    <div class="col-xs-6 mx-auto"><h5>＜ 会員登録がお済みでない方 ＞</h5></div>
-  </div>
-
-  <div class="row mt-2 mb-5">
-    <div class="col-12 text-center"><%= render "customers/shared/links" %></div>
-  </div>
-
 </div>
+

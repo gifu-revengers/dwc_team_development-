@@ -43,6 +43,19 @@ $(window).scroll(function (){
 	});
 });
 
+// 入力フォーム
+$(function () {
+  $('.form-js-input').on('keyup', function () {
+    if ($(this).val()) {
+      $(this).addClass('not-empty');
+      console.log('true')
+    } else {
+      $(this).removeClass('not-empty');
+      console.log('false')
+    }
+  });
+});
+
 // TOP main_visual skippr
 $(document).on('turbolinks:load', function(){
   $(".main_visual_images").skippr({
