@@ -18,7 +18,7 @@
               <div class="card-body mt-4">
                 <h1><%= @item.name %></h1>
                 <p class="mb-5"><%= @item.caption %></p>
-                <h5 class="mt-5"><%= number_to_currency(@item.tax_include, unit: "¥", strip_insignificant_zeros: true) %>(税込)</h5>
+                <h5 class="mt-5"><%= number_to_currency(@item.tax_include, unit: "¥", strip_insignificant_zeros: true, format: "%u%n") %>(税込)</h5>
 
               <%= form_with model: @cart_item, local: true do |f| %>
                 <%= f.hidden_field :item_id, value: @item.id %>

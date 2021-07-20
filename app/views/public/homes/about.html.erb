@@ -1,13 +1,58 @@
-<div class="container text-center">
-  <h1>About</h1>
+<div id="about-mv" class="my-5 mb-lg-7">
+  <div class="container-fluid">
+    <div class="row zi-1 pr">
+      <div class="px-md-auto col-md-12">
+        <h1 class="text-center mb-5">
+          <strong class="abtl-1 fadeInRight">About</strong><br>
+          <strong class="abtl-2 fadeInLeft">The <span class="about-main">Golden</span> Experience</strong>
+        </h1>
+        <h3 class="text-sm-center mt-5 fadeInDown">
+          <span>ながのCAKEは全国発送可能なケーキ屋さんです。</span><br>
+          <span>お子様からお年寄りの方までお召し上がりいただけるよう、</span><br>
+          <span>様々なバリエーションをご用意しております。</span><br>
+          <span>また、全国へ発送可能ですので、「いつ」でも「どこ」でもご注文いただけます。</span><br>
+          <span>ぜひご注文ください。</span>
+        </h2>
+      </div>
+    </div>
 
-  <p>
-    ながのCAKEは全国発送可能なケーキ屋さんです。<br>
-    お子様からお年寄りの方までお召し上がりいただけるよう、<br>
-    様々なバリエーションをご用意しております。<br>
-    また、全国へ発送可能ですので、「いつ」でも「どこ」でもご注文いただけます。<br>
-    ぜひご注文ください。
-  </p>
+    <div id="amv">
+      <ul class="row">
+        <li class="col-6 col-md-4 mr-auto">
+          <img src="/assets/mv-1.jpg" class="img-fluid fadeInDown">
+        </li>
+        <li class="col-6 col-md-4 ml-auto">
+          <img src="/assets/mv-2.jpg" class="img-fluid  fadeInDown">
+        </li>
+      </ul>
+    </div>
 
-  <img src="/assets/cake_role.jpeg">
+    <div id="items">
+      <div class="row mt-5">
+        <div class="items_loop">
+          <div class="view_comment text-center">
+            <h2>届けたいのは<br><strong>｢美味しさ｣</strong>を味わえる<strong>｢感動｣</strong>です。</h2>
+            <%= link_to new_customer_session_path, class:"push_btn" do %>
+              <span>今すぐ注文する</span>
+            <% end %>
+          </div>
+          <div class="loop_wrap">
+            <ul>
+              <li><img src="/assets/cake_charlotte.jpeg" alt=""></li>
+              <li><img src="/assets/cake_cheese.jpeg" alt=""></li>
+              <li><img src="/assets/cake_chocolate.jpeg" alt=""></li>
+              <li><img src="/assets/cake_role.jpeg" alt=""></li>
+            </ul>
+            <ul>
+              <li><img src="/assets/cake_strawberry.jpeg" alt=""></li>
+              <li><img src="/assets/cake_strawberry_tart.jpeg" alt=""></li>
+              <li><img src="/assets/candy_coloful.jpeg" alt=""></li>
+              <li><img src="/assets/candy_drop.jpeg" alt=""></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
