@@ -33,6 +33,7 @@ $(function () {
 			'#address' : '%3%4%5'
 		}
 	});
+});
 
 // スクロールのフェードイン
 $(window).scroll(function (){
