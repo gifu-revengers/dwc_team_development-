@@ -173,6 +173,61 @@
   }
 }
 
+// アイコンからボタンに変化
+.btn-circle {
+  color: #696969;
+  .btn-outside {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    border: #696969 5px solid;
+    height: 50px;
+    overflow: hidden;
+    text-align: center;
+    width: 50px;
+    border-radius: 50%;
+    transition: 0.3s ease all;
+    &:hover {
+      width: 200px;
+      border-radius: 5px;
+      .btn-text {
+        display: none;
+      }
+      .btn-click {
+        opacity: 1;
+      }
+    }
+  }
+  .btn-text,
+  .btn-click {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: 0.3s ease all;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn-text {
+    font-size: 30px;
+    font-weight: 700;
+    z-index: 9999;
+  }
+  .btn-click {
+    z-index: 8888;
+    opacity: 0;
+    margin: 0 auto;
+    margin-top: 0px;
+    a {
+      color: #696969;
+      text-decoration: none;
+      width: 100%;
+    }
+  }
+}
+
 // フェードイン //
 .scroll-space{
   box-sizing: border-box;
