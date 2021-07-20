@@ -527,6 +527,117 @@
   animation: loop2 50s linear infinite;
 }
 
+// 商品一覧画面のレイアウト
+
+.items_image{
+  width: 100%;
+  height: 400px;
+  background-image: image-url('cake_strawberry.jpeg');
+  background-position: 0 -100px;
+  position: relative;
+}
+
+.items_image h2{
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+
+.item_image{
+  width: 100%;
+}
+
+#item_detail:nth-child(2n+1){
+  flex-direction: row;
+}
+
+#item_detail:nth-child(2n){
+  flex-direction: row-reverse;
+}
+
+#item_detail{
+  padding: 30px;
+  border-bottom: 1px solid black;
+}
+
+.hover {
+  position: relative;
+}
+.hover .hover-img {
+  margin: 0;
+  padding: 0;
+}
+
+.hover .hover-text {
+  display: inline-block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: #fff;
+  background-color: rgba(0,0,0,0.65);
+  /*透明にして表示させない*/
+  opacity: 0;
+  /*ホバーの動き方*/
+  transition: .3s ease-in-out;
+}
+.hover .hover-text .text1 {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  font-size: 22px;
+  padding: 10px 20px;
+}
+.hover .hover-text .text2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 16px;
+  padding: 0 20px;
+}
+/*ホバーエフェクト*/
+.hover:hover .hover-text {
+  /*不透明にして表示*/
+  opacity: 1;
+}
+
+.item_inf{
+  position: relative;
+}
+
+.item_inf .to_item{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.item_inf .item_price{
+  position: absolute;
+  bottom: 50px;
+  left: 5px;
+  font-size: 30px;
+}
+
+.item_inf h4{
+  position: absolute;
+  top: 50px;
+  left: 5px;
+}
+
+.main_visual_image5{
+  background-image: image-url('choco.jpg')
+}
+.main_visual_image6{
+  background-image: image-url('fruits.jpg')
+}
+.main_visual_image7{
+  background-image: image-url('heart.jpg')
+}
+.main_visual_image8{
+  background-image: image-url('thumb.jpg')
+}
+
 
 //フッター//
  footer{
