@@ -15,6 +15,7 @@ class Public::CartItemsController < ApplicationController
       @genres = Genre.all
       render "public/items/show"
     end
+  end
 
   def update
     @cart_items=CartItem.where(customer_id: current_customer)
@@ -47,7 +48,7 @@ class Public::CartItemsController < ApplicationController
   private
 
   def cart_item_params
-    params.require(:cart_item).permit(:quantity)
+    params.require(:cart_item).permit(:item_id, :quantity)
   end
 
 end
