@@ -12,8 +12,10 @@ class Item < ApplicationRecord
     validates :caption
     validates :price
     validates :item_image
-    validates :is_active
   end
+
+    validates :is_active,inclusion: { in: [true,false]}
+
 
 # 消費税込みの値段表示
   def tax_include

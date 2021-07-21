@@ -6,6 +6,7 @@ class Admin::ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.new(item_params)
     if @item.save
       flash[:notice] = "商品の新規登録が完了しました"
