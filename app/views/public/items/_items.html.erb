@@ -1,20 +1,49 @@
 <div class="items_view">
-  <div class="d-flex bd-highlight">
-    <% @items.each do |item| %>
-      <div class="card mr-2" style="width: 12rem;">
-        <div class="p-2 flex-fill bd-highlight">
-          <%= attachment_image_tag item, :item_image, :fill, 100, 100, fallback:"cake_role.jpeg", class:"bd-placeholder-img card-img-top" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= item.name %></h5>
-            <p class="card-text"><%= number_to_currency(item.price, unit: "¥", strip_insignificant_zeros: true, format: "%u%n") %></p>
-            <%= link_to item_path(item), class:"push_btn" do %>
-              <span>商品詳細</span>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    <% end %>
+  <% if @title %>
+    <h1 class="mt-5"><%= @title %>（全<%= @items.count %>件）</h1>
+  <% else %>
+    <h1 class="mt-5">商品一覧（全<%= @items.count %>件）</h1>
+  <% end %>
 
-    <%= paginate @items %>
+  <div id="items">
+    <% @items.each do |item| %>
+    <div class="row" id="item_detail">
+      <div class="col-sm-8">
+        <section class="hover">
+          <div class="hover-img">
+            <%= attachment_image_tag item, :item_image, fallback:"cake_role.jpeg", class:"item_image fadein fadein-up" %>
+          </div>
+
+          <% if customer_signed_in? %>
+            <%= link_to item_path(item), class:"hover-text" do  %>
+              <p class="text1"><%= item.name %></p>
+              <p class="text2"><%= item.caption %></p>
+            <% end %>
+          <% else %>
+            <%= link_to new_customer_session_path, class:"hover-text" do  %>
+              <p class="text1"><%= item.name %></p>
+              <p class="text2"><%= item.caption %></p>
+            <% end %>
+          <% end %>
+
+        </section>
+      </div>
+
+      <div class="col-sm-4 item_inf">
+        <h4><%= item.name %></h4>
+        <p class="item_price"><%= number_to_currency(item.price, unit: "¥", strip_insignificant_zeros: true, format: "%u%n") %></p>
+        <% if customer_signed_in? %>
+          <%= link_to item_path(item), class:"push_btn to_item" do %>
+            <span>商品詳細</span>
+          <% end %>
+        <% else %>
+          <%= link_to new_customer_session_path, class:"push_btn to_item" do %>
+            <span>商品詳細</span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
   </div>
+  <%= paginate @items %>
 </div>

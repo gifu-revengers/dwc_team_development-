@@ -5,15 +5,19 @@
     </div>
 
     <div class="col-9">
-      <% if @title %>
-        <h2 class="mt-4 mb-4"><%= @title %>（全<%= @items.count %>件）</h2>
-      <% else %>
-        <h2 class="mt-4 mb-4">商品一覧（全<%= @items.count %>件）</h2>
-      <% end %>
-
-    
+      <div class="main_visual">
+        <div class="main_visual_top"></div>
+        <div class="main_visual_image_box">
+          <div class="main_visual_images">
+            <div class="main_visual_image5"></div>
+            <div class="main_visual_image6"></div>
+            <div class="main_visual_image7"></div>
+            <div class="main_visual_image8"></div>
+          </div>
+        </div>
+        <div class="main_visual_under"></div>
+      </div>
       <%= render "items", items: @items %>
-
-      
+    </div>
   </div>
 </div>
