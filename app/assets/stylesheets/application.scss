@@ -765,6 +765,17 @@
   background-image: image-url('thumb.jpg')
 }
 
+// 商品詳細画面のレイアウト
+.item_contents{
+  position: relative;
+}
+
+.item_contents form{
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+}
+
 
 //フッター//
  footer{
