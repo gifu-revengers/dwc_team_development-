@@ -63,6 +63,35 @@
   }
  }
 
+// 左側に2本線が入った見出し
+.two-line-heading {
+  color: #000000; /* 文字色 */
+  padding: 5px 5px 5px 30px; /* 上・右・下・左の余白 */
+  position: relative;
+
+  &:before {
+    background-color: #696969; /* 左側の線の色 */
+    border-radius: 5px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 3px; /* 左端からの位置 */
+    width: 5px; /* 左側の線の幅 */
+    height: 100%;
+  }
+
+  &:after {
+    background-color: #d3d3d3; /* 右側の線の色 */
+    border-radius: 5px;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 12px; /* 左端からの位置 */
+    width: 5px; /* 右側の線の幅 */
+    height: 100%;
+  }
+}
+
 
 // リンクの下線をアニメーションする
 .link_animation{
@@ -126,6 +155,21 @@
     left: 0;
     top: 0;
     box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
+  }
+}
+
+// シンプルなボタン
+.btn-flat-success {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #228b22;
+  border: solid 2px #228b22;
+  border-radius: 3px;
+  transition: .4s;
+  &:hover{
+    background: #228b22;
+    color: white;
   }
 }
 

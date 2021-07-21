@@ -49,7 +49,7 @@ $(window).scroll(function (){
 });
 
 // 入力フォーム
-$(function () {
+$(document).on('turbolinks:load',function(){
   $('.form-js-input').on('keyup', function () {
     if ($(this).val()) {
       $(this).addClass('not-empty');
