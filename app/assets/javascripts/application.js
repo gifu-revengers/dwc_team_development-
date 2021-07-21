@@ -11,20 +11,21 @@
 // about supported directives.
 //
 //= require jquery3
-//= require popper
-//= require bootstrap-sprockets
-
 //= require rails-ujs
 //= require activestorage
+//= require bootstrap-sprockets
+
 //= require turbolinks
 //= require_tree .
+//= require popper
+
 
 
 $(document).on('turbolinks:load',function(){
   $(".fadeInDown").hide().fadeIn(4000);
 });
 
-$(function () {
+$(document).on('turbolinks:load', function () {
 	$('#zip').jpostal({
 		postcode : [
 			'#zip'
