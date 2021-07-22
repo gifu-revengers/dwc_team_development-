@@ -167,8 +167,39 @@
   border: solid 2px #228b22;
   border-radius: 3px;
   transition: .4s;
+  background: transparent;
   &:hover{
     background: #228b22;
+    color: white;
+  }
+}
+
+.btn-flat-primary {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #007bff;
+  border: solid 2px #007bff;
+  border-radius: 3px;
+  transition: .4s;
+  background:  transparent;
+  &:hover{
+    background: #007bff;
+    color: white;
+  }
+}
+
+.btn-flat-danger {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #dc3545;
+  border: solid 2px #dc3545;
+  border-radius: 3px;
+  transition: .4s;
+  background:  transparent;
+  &:hover{
+    background: #dc3545;
     color: white;
   }
 }

@@ -10,21 +10,22 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require popper
-//= require bootstrap-sprockets
-
+//= require jquery3
 //= require rails-ujs
 //= require activestorage
-//= require jquery3
+//= require bootstrap-sprockets
+
 //= require turbolinks
 //= require_tree .
+//= require popper
+
 
 
 $(document).on('turbolinks:load',function(){
   $(".fadeInDown").hide().fadeIn(4000);
 });
 
-$(document).on('turbolinks:load',function () {
+$(document).on('turbolinks:load', function () {
 	$('#zip').jpostal({
 		postcode : [
 			'#zip'

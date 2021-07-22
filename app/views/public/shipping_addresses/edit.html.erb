@@ -9,14 +9,14 @@
     <div class="form_group row ml-10 mb-2">
       <%= f.label :郵便番号, class:"col-sm-2 col-form-label" %>
       <div class="col-sm-10">
-        <%= f.text_field :postcode %>
+        <%= f.text_field :postcode, id:"zip" %>
       </div>
     </div>
 
     <div class="form_group row ml-10 mb-2">
       <%= f.label :住所, class:"col-sm-2 col-form-label" %>
       <div class="col-sm-10">
-        <%= f.text_field :address, size:"60" %>
+        <%= f.text_field :address, size:"60", id:"address" %>
       </div>
     </div>
 

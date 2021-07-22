@@ -13,7 +13,11 @@
     <header>
       <nav class="navbar navbar-expand-lg">
         <div class="container">
-          <a class="navbar-brand" href="/"><%= image_tag "logo.jpeg", size:"150" %></a>
+          <% if admin_signed_in? %>
+            <a class="navbar-brand" href="/admin/orders"><%= image_tag "logo.jpeg", size:"150" %></a>
+          <% else %>
+            <a class="navbar-brand" href="/"><%= image_tag "logo.jpeg", size:"150" %></a>
+          <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -62,7 +66,7 @@
                   <%= link_to "I t e m", items_path, class: "nav-link text-dark" %>
                 </li>
                 <li class="nav-item">
-                  <%= link_to "S i g n u p", new_customer_registration_path, class: "nav-link text-dark" %>
+                  <%= link_to "S i g n u p", new_customer_registration_path, data: {"turbolinks" => false}, class: "nav-link text-dark" %>
                 </li>
                 <li class="nav-item">
                   <%= link_to "L o g i n", new_customer_session_path, class: "nav-link text-dark" %>
