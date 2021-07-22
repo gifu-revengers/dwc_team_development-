@@ -4,6 +4,8 @@
     <div class="col-xs-6 mx-auto"><h2>Customer Login</h2></div>
   </div>
 
+  <%= render "customers/shared/error_messages", resource: resource %>
+
   <%= form_with model: @customer, url: customer_session_path, class:"contact-form" ,local: true do |f| %>
 
     <div class="row mt-5">

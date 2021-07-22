@@ -3,6 +3,8 @@
     <div class="col-xs-6 mx-auto"><h4>Sign Up</h4></div>
   </div>
 
+  <%= render "customers/shared/error_messages", resource: resource %>
+
   <%= form_with model: @customer, url: customer_registration_path, class:"contact-form", local: true do |f| %>
 
     <div class="row mt-5 d-flex justify-content-center">
