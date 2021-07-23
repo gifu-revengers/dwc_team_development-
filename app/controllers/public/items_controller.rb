@@ -8,8 +8,18 @@ class Public::ItemsController < ApplicationController
       search_words = search.split(/[[:blank:]]+/)
       items = []
       search_words.each do |search_word|
-        next if search_word == ""
-        items += Item.where(['name like(?)', "%#{search_word}%"])
+      next if search_word == ""
+      items += Item.where(['name like(?)', "%#{search_word}%"])
+        if items.count == 0
+          if search_word.match(/[一-龠々]/)
+            conversion_word = search_word.to_kanhira.to_roman
+          elsif search_word.is_hira? || search_word.is_kana?
+            conversion_word = search_word.to_roman
+          else
+            conversion_word = search_word
+          end
+          items += Item.where(['conversion_title like(?)', "%#{conversion_word}%"])
+        end
       end
       items.uniq!
       @items = Kaminari.paginate_array(items).page(params[:page]).per(10)
