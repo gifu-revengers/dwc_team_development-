@@ -173,6 +173,34 @@
   }
 }
 
+.btn-flat-primary {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #007bff;
+  border: solid 2px #007bff;
+  border-radius: 3px;
+  transition: .4s;
+  &:hover{
+    background: #007bff;
+    color: white;
+  }
+}
+
+.btn-flat-danger {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #dc3545;
+  border: solid 2px #dc3545;
+  border-radius: 3px;
+  transition: .4s;
+  &:hover{
+    background: #dc3545;
+    color: white;
+  }
+}
+
 // アイコンからボタンに変化
 .btn-circle {
   color: #696969;
@@ -735,6 +763,17 @@
 }
 .main_visual_image8{
   background-image: image-url('thumb.jpg')
+}
+
+// 商品詳細画面のレイアウト
+.item_contents{
+  position: relative;
+}
+
+.item_contents form{
+  position: absolute;
+  bottom: 0;
+  left: 16px;
 }
 
 

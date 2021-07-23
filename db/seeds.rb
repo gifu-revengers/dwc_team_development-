@@ -43,7 +43,8 @@
       name: "ケーキ#{n + 1}",
       caption: "このケーキは#{n + 1}番目に美味しい！",
       price: (n + 1) * 1000,
-      item_image: open("app/assets/images/no_image.jpg")
+      item_image: open("app/assets/images/no_image.jpg"),
+      conversion_title: "ke-ki#{n + 1}"
     )
 
     OrderDetail.create!(

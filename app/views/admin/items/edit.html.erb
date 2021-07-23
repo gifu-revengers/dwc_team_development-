@@ -2,7 +2,7 @@
 
 <div class="container mt-5 mb-5">
   <div class="row mb-4">
-    <h2>商品編集</h2>
+    <h5 class="two-line-heading">商品編集</h5>
   </div>
 
   <%= form_with model: @item, url:admin_item_path, local: true do |f| %>
@@ -27,10 +27,10 @@
       </div>
   　 </div>
 
-    <div class="form_group row ml-10 mb-2">
+    <div class="form_group row ml-10 mb-4">
       <%= f.label :ジャンル, class:"col-sm-2 col-form-label"%>
-      <div class="col-sm-10">
-        <%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id] }, :prompt => "〜ジャンルを選択してください〜" %>
+      <div>
+        <%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id] }, {}, style:"width: 120px", class:"form-control ml-3" %>
       </div>
   　</div>
 
@@ -52,7 +52,7 @@
   　</div>
 
     <div class="col text-center">
-      <%= f.submit '変更を保存', class:"btn btn-success"%>
+      <%= f.submit '変更を保存', class:"btn-flat-success ml-4"%>
     </div>
   <% end %>
 </div>

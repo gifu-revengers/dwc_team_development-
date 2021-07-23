@@ -2,7 +2,7 @@
 
 <div class="container mt-5 mb-5">
   <div class="row mb-4">
-    <h2>商品新規登録</h2>
+    <h5 class="two-line-heading">新規商品登録</h5>
   </div>
 
   <%= form_with model: @item, url:admin_items_path, local: true do |f| %>
@@ -30,7 +30,7 @@
     <div class="form_group row ml-10 mb-2">
       <%= f.label :ジャンル, class:"col-sm-2 col-form-label"%>
       <div class="col-sm-10">
-        <%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id] }, :prompt => "〜ジャンルを選択してください〜" %>
+        <%= f.select :genre_id, @genres.map{ |genre| [genre.name, genre.id] }, {}, style:"width: 120px", class:"form-control" %>
       </div>
   　</div>
 
@@ -52,7 +52,7 @@
   　</div>
 
     <div class="col text-center">
-      <%= f.submit '新規登録', class:"btn btn-success"%>
+      <%= f.submit '新規登録', class:"btn-flat-success"%>
     </div>
   <% end %>
 </div>
