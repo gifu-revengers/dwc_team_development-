@@ -89,18 +89,21 @@
 
 
     <main>
-      <% if alert %>
-        <p class="alert"><%= alert %></p>
-      <% end %>
-      <div class="text-success">
-        <% if flash[:notice] %>
-          <div class="flash">
-            <%= flash[:notice]%>
+      <div class="container">
+        <div class="row my-2">
+          <% if alert %>
+            <p class="alert"><%= alert %></p>
+          <% end %>
+          <div class="text-success">
+            <% if flash[:notice] %>
+              <div class="flash">
+                <%= flash[:notice]%>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+        </div>
       </div>
       <%= yield %>
-      <!--<script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>-->
       <script type="text/javascript" src="//jpostal-1006.appspot.com/jquery.jpostal.js"></script>
     </main>
     <div class="container">

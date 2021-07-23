@@ -167,6 +167,7 @@
   border: solid 2px #228b22;
   border-radius: 3px;
   transition: .4s;
+  background: transparent;
   &:hover{
     background: #228b22;
     color: white;
@@ -181,6 +182,7 @@
   border: solid 2px #007bff;
   border-radius: 3px;
   transition: .4s;
+  background:  transparent;
   &:hover{
     background: #007bff;
     color: white;
@@ -195,6 +197,7 @@
   border: solid 2px #dc3545;
   border-radius: 3px;
   transition: .4s;
+  background:  transparent;
   &:hover{
     background: #dc3545;
     color: white;

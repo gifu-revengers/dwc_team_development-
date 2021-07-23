@@ -5,6 +5,7 @@
   </div>
 
   <%= form_with model: @admin, url: admin_session_path, class:"contact-form" ,local: true do |f| %>
+    <%= render "admin/shared/error_messages", resource: resource %>
 
     <div class="row mt-5">
       <div class="col-8 mx-auto col-lg-5 form-field">

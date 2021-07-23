@@ -68,7 +68,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.where(customer_id: current_customer.id)
+    @orders = Order.where(customer_id: current_customer.id).order(id: :desc)
     #注文商品一覧を作成
     @order_details = []
     @orders.each do |order|
