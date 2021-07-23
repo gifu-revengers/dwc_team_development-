@@ -10,15 +10,14 @@
 <% end %>
 
 <div class="container mt-5">
-
   <%= render "table", cart_items:@cart_items,cart_item:@cart_item%>
 
   <div class="row">
     <div class="mx-auto">
       <% if @cart_items.empty? %>
-        <%= link_to "情報入力へ進む",information_orders_path,  data: {"turbolinks" => false}, class: "btn btn-success btn-sm disabled" %>
+        <%= link_to "情報入力へ進む",information_orders_path,  data: {"turbolinks" => false}, class: "btn-flat-success" %>
       <% else %>
-        <%= link_to "情報入力へ進む",information_orders_path,  data: {"turbolinks" => false}, class: "btn btn-success btn-sm enabled" %>
+        <%= link_to "情報入力へ進む",information_orders_path,  data: {"turbolinks" => false}, class: "btn-flat-success" %>
       <% end %>
     </div>
   </div>
