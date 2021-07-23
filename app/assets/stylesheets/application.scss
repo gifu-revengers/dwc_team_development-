@@ -167,6 +167,7 @@
   border: solid 2px #228b22;
   border-radius: 3px;
   transition: .4s;
+  background: transparent;
   &:hover{
     background: #228b22;
     color: white;
@@ -181,6 +182,7 @@
   border: solid 2px #007bff;
   border-radius: 3px;
   transition: .4s;
+  background:  transparent;
   &:hover{
     background: #007bff;
     color: white;
@@ -195,6 +197,7 @@
   border: solid 2px #dc3545;
   border-radius: 3px;
   transition: .4s;
+  background:  transparent;
   &:hover{
     background: #dc3545;
     color: white;
@@ -776,6 +779,84 @@
   left: 16px;
 }
 
+
+//退会画面
+
+#quit_confirm_underline{
+  margin: auto;
+  background: linear-gradient(transparent 70%, #a7d6ff 70%);
+}
+
+//注文確定画面
+
+#thankyou{
+  width: 25%;
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+#thankyou_ribbon {
+  display: inline-block;
+  position: relative;
+  height: 45px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+#thankyou_ribbon:before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  bottom: -10px;
+  left: -35px;
+  z-index: -2;
+  border: 20px solid #a5cff3;
+  border-left-color: transparent;
+}
+
+#thankyou_ribbon:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  bottom: -10px;
+  right: -35px;
+  z-index: -2;
+  border: 20px solid #a5cff3;
+  border-right-color: transparent;
+}
+
+#thankyou_ribbon h3 {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  padding: 0 20px;
+  line-height: 45px;
+  font-size: 18px;
+  color: #008eff;
+  text-shadow: 0 0 2px #FFF;
+  background: -webkit-repeating-linear-gradient(-45deg, #b0daff, #b0daff 3px,#cfe8ff 3px, #cfe8ff 7px);
+  background: repeating-linear-gradient(-45deg, #b0daff, #b0daff 3px,#cfe8ff 3px, #cfe8ff 7px);
+}
+
+#thankyou_ribbon h3:before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0;
+  border: none;
+  border-bottom: solid 10px transparent;
+  border-right: solid 15px #7fafd9;
+}
+
+#thankyou_ribbon h3:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  right: 0;
+  border: none;
+  border-bottom: solid 10px transparent;
+  border-left: solid 15px #7fafd9;
+}
 
 //フッター//
  footer{

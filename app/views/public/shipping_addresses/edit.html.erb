@@ -2,21 +2,21 @@
 
 <div class="container mt-5 mb-5">
   <div class="row mb-4">
-    <h2>配送先編集</h2>
+    <h5 class="two-line-heading">配送先編集</h2>
   </div>
 
   <%= form_with model: @shipping_address, local: true do |f| %>
     <div class="form_group row ml-10 mb-2">
       <%= f.label :郵便番号, class:"col-sm-2 col-form-label" %>
       <div class="col-sm-10">
-        <%= f.text_field :postcode %>
+        <%= f.text_field :postcode, id:"zip" %>
       </div>
     </div>
 
     <div class="form_group row ml-10 mb-2">
       <%= f.label :住所, class:"col-sm-2 col-form-label" %>
       <div class="col-sm-10">
-        <%= f.text_field :address, size:"60" %>
+        <%= f.text_field :address, size:"60", id:"address" %>
       </div>
     </div>
 
@@ -25,7 +25,7 @@
       <div class="col-sm-10">
         <%= f.text_field :address_name %>
       </div>
-      <%= f.submit "新規登録", class:"btn btn-success" %>
+      <%= f.submit "変更内容を保存", class:"mt-3 btn-flat-success" %>
     </div>
   <% end %>
 </div>

@@ -1,19 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col-3 offset-1"><h4>注文履歴一覧</h4></div>
+    <h5 class="two-line-heading">注文履歴一覧</h4>
   </div>
 
-  <div class="row">
-    <div class="col-12">
-      <table class="table table-bordered table-hover table-responsive-md">
+  <div class="row mt-3 mb-3">
+    <div class="col-12 table-responsive">
+      <table class="table table-bordered table-hover">
         <thead>
           <tr>
-            <th width="80">注文日</th>
-            <th>配送先</th>
-            <th width="120">注文商品</th>
-            <th width="100">支払金額</th>
-            <th width="120">ステータス</th>
-            <th width="120">注文詳細</th>
+            <th style="width:10%">注文日</th>
+            <th style="width:40%">配送先</th>
+            <th style="width:20%">注文商品</th>
+            <th style="width:10%">支払金額</th>
+            <th style="width:10%">ステータス</th>
+            <th style="width:10%">注文詳細</th>
           </tr>
         </thead>
         <tbody>
@@ -21,20 +21,20 @@
           <% n = 0 %>
           <% @orders.each do |order| %>
             <tr>
-              <td><%= order.created_at.strftime("%Y/%m/%d") %></td>
-              <td>
+              <td style="white-space:nowrap"><%= order.created_at.strftime("%Y/%m/%d") %></td>
+              <td style="white-space:nowrap">
                 <div>〒<%= order.postcode %></div>
                 <div><%= order.address %></div>
                 <div><%= order.address_name %></div>
               </td>
-              <td>
+              <td style="white-space:nowrap">
                 <% @order_details[n].each do |item| %>
                   <div><%= item %></div>
                 <% end %>
               </td>
-              <td><%= order.amount_including_shipping.to_s(:delimited) %>円</td>
-              <td><%= order.status %></td>
-              <td><%= link_to "表示する", order_path(order), class:"btn btn-primary" %></td>
+              <td style="white-space:nowrap"><%= order.amount_including_shipping.to_s(:delimited) %>円</td>
+              <td style="white-space:nowrap"><%= order.status %></td>
+              <td style="white-space:nowrap"><%= link_to "表示する", order_path(order), class:"btn-flat-primary" %></td>
             </tr>
             <% n += 1 %>
           <% end %>

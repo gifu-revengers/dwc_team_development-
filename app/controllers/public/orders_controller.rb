@@ -6,6 +6,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def purchase
+    @cart_items=CartItem.where(customer_id:current_customer.id)
     @order=Order.new(order_params)
     @shipping_sel=order_params[:shipping_sel]
     @shipping_address_id=order_params[:shipping_address_id]
@@ -67,7 +68,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.where(customer_id: current_customer.id)
+    @orders = Order.where(customer_id: current_customer.id).order(id: :desc)
     #注文商品一覧を作成
     @order_details = []
     @orders.each do |order|
