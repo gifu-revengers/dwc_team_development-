@@ -87,6 +87,3 @@ $(document).on('turbolinks:load', function(){
     hidePrevious : false
   });
 });
-
-
-
