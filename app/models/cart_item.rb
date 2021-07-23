@@ -21,4 +21,5 @@ class CartItem < ApplicationRecord
     end
     return total_price
   end
+  
 end
