@@ -13,9 +13,9 @@
           <div class="hover-img">
             <%= attachment_image_tag item, :item_image, fallback:"cake_role.jpeg", class:"item_image fadein fadein-up" %>
           </div>
-          <%= link_to item_path(item), class:"hover-text" do  %>
-            <p class="text1"><%= item.name %></p>
-            <p class="text2"><%= item.caption %></p>
+          <%= link_to item_path(item), class:"hover-text d-flex flex-wrap align-content-end" do  %>
+            <div class="text1"><%= item.name %></div>
+            <div class="text2"><%= item.caption %></div>
           <% end %>
         </section>
       </div>
