@@ -1,1 +1,2 @@
-$(".cart_item_view").html("<%= j(render partial: "table", locals: { cart_items:@cart_item,cart_item:@cart_item}) %>")
+$(".cart_item_view").html("<%= j(render partial: "table", locals: { cart_items: @cart_items,cart_item: @cart_item}) %>")
+$(".text-success").addClass("d-none");

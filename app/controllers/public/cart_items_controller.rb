@@ -29,19 +29,18 @@ class Public::CartItemsController < ApplicationController
   end
 
   def destroy
+    @cart_item=CartItem.find(params[:id])
+    @cart_item.destroy
     @cart_items=CartItem.where(customer_id: current_customer)
-    @cart_item=CartItem.new
-    cart_item=CartItem.find(params[:id])
-    cart_item.destroy
   end
 
   def destroy_all
-    @cart_items=CartItem.where(customer_id: current_customer)
-    @cart_item=CartItem.new
     cart_items=CartItem.where(customer_id: current_customer)
+    @cart_item=CartItem.new
     cart_items.each do |cart_item|
       cart_item.destroy
     end
+    @cart_items=CartItem.where(customer_id: current_customer)
   end
 
 
