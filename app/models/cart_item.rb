@@ -11,7 +11,7 @@ class CartItem < ApplicationRecord
 
   #追加メソッド
   def subtotal
-    self.quantity * self.item.price
+    self.quantity * self.item.tax_include
   end
 
   def total
@@ -21,5 +21,5 @@ class CartItem < ApplicationRecord
     end
     return total_price
   end
-  
+
 end
