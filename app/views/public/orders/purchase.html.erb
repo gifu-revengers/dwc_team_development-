@@ -21,9 +21,9 @@
                 <div class="d-inline-flex"><%= attachment_image_tag cart_item.item, :item_image, :fill, 80, 80, format: 'jpeg', fallback: "no_image.jpg" %></div>
                 <div class="d-inline-flex align-top"><%= cart_item.item.name %></div>
               </td>
-              <td><%= cart_item.item.price.to_s(:delimited) %></td>
+              <td><%= cart_item.item.tax_include.to_s(:delimited) %></td>
               <td><%= cart_item.quantity %></td>
-              <td><%= (cart_item.item.price * cart_item.quantity).to_s(:delimited) %></td>
+              <td><%= (cart_item.item.tax_include* cart_item.quantity).to_s(:delimited) %></td>
               <% sum += cart_item.subtotal %>
             </tr>
           <% end %>

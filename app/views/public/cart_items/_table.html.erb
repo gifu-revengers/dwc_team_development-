@@ -28,7 +28,7 @@
           　　<%= cart_item.item.name %>
             </td>
             <td id="price">
-          　　<h5><%= number_to_currency(cart_item.item.price, unit: "¥", strip_insignificant_zeros: true, format: "%u%n") %></h5>
+          　　<h5><%= number_to_currency(cart_item.item.tax_include, unit: "¥", strip_insignificant_zeros: true, format: "%u%n") %></h5>
             </td>
             <td>
               <%= form_with model:cart_item,  url:cart_item_path(cart_item.id) do |f| %>
@@ -37,7 +37,7 @@
               <% end %>
             </td>
             <td>
-              <%= cart_item.subtotal %>
+              <%= cart_item.subtotal.to_s(:delimited) %>
               <% sum += cart_item.subtotal %>
             </td>
             <td>

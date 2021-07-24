@@ -56,7 +56,7 @@ class Public::OrdersController < ApplicationController
       @order_detail.order_id=@order.id
       @order_detail.item_id=cart_item.item_id
       @order_detail.quantity=cart_item.quantity
-      @order_detail.price=Item.find(@order_detail.item_id).price * cart_item.quantity
+      @order_detail.price=Item.find(@order_detail.item_id).tax_include * cart_item.quantity
       @order_detail.save
       cart_item.destroy
       total_price += @order_detail.price
