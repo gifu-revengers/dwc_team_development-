@@ -12,7 +12,6 @@
 //
 //= require jquery3
 //= require rails-ujs
-//= require autocomplete-rails
 //= require activestorage
 //= require bootstrap-sprockets
 
