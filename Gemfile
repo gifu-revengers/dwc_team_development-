@@ -75,5 +75,3 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'rails-i18n'
 
 gem 'miyabi'
-
-gem 'rails4-autocomplete'
