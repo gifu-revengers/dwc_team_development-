@@ -24,7 +24,7 @@
           <% @cart_items.each do |cart_item| %>
               <tr>
                 <td>
-                  <%= attachment_image_tag cart_item.item, :item_image, fallback:"cake_role.jpeg", class:"cart_item_image" %>
+                  <%= attachment_image_tag cart_item.item, :item_image, fallback:"no_image.jpeg", class:"cart_item_image" %>
               　　<%= cart_item.item.name %>
                 </td>
                 <td id="price">
