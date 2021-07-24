@@ -677,6 +677,11 @@
   width: 100%;
 }
 
+.cart_item_image{
+  width: 100px;
+  height: 100px;
+}
+
 #item_detail:nth-child(2n+1){
   flex-direction: row;
 }
@@ -778,6 +783,8 @@
   bottom: 0;
   left: 16px;
 }
+
+// カート画面のレイアウト
 
 
 //退会画面
