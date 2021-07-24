@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     end
 
     resources :shipping_addresses, except:[:new,:show]
-    resources :items,              only:[:index,:show]
+    resources :items,              only:[:index,:show] do
+      get :autocomplete_item_name, :on => :collection
+    end
 
     resources :cart_items, except:[:new,:edit,:show] do
       delete 'destroy_all', on: :collection

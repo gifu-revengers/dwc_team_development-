@@ -74,11 +74,12 @@
               <% end %>
 
               <li class="search_form">
-                <%= form_with url: items_path, method: :get, local: true do |f| %>
+                <%= form_with(url: items_path, method: :get, enforce_utf8: false, local: true) do |f| %>
                   <%= f.text_field :search_word , class:"search_form_text" %>
                   <%= f.button :type => "submit", class:"search_form_btn" do %>
                     <i class="fas fa-search search_form_icon"></i>
                   <% end %>
+                  <%= autocomplete_field_tag 'item[name]', nil,  autocomplete_item_name_items_path %>
                 <% end %>
               </li>
             </ul>
