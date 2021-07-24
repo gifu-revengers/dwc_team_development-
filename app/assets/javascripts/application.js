@@ -22,7 +22,6 @@
 //= require popper
 
 
-
 $(document).on('turbolinks:load',function(){
   $(".fadeInDown").hide().fadeIn(4000);
 });
