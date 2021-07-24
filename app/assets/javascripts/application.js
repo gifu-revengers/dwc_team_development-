@@ -24,11 +24,7 @@ $(document).on('turbolinks:load',function(){
   $(".fadeInDown").hide().fadeIn(4000);
 });
 
-<<<<<<< HEAD
-$(document).on('turbolinks:load',function () {
-=======
 $(document).on('turbolinks:load', function () {
->>>>>>> 8273f9ab52347659a832cf2a0b5597abd65901a0
 	$('#zip').jpostal({
 		postcode : [
 			'#zip'
