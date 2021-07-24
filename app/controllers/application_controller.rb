@@ -2,9 +2,6 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-# protect_from_forgery with: :exception
-#   autocomplete :item, :name, full: true
-
 def after_sign_in_path_for(resource)
   case resource
   when Admin
