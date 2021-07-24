@@ -14,18 +14,22 @@
             </div>
 
             <div class="col-4 p-3 item_contents">
-                <h3 style="border-bottom: 1px solid black"><%= @item.name %></h3>
-                <p class="mt-3 mb-5"><%= @item.caption %></p>
-                <h5><%= number_to_currency(@item.tax_include, unit: "¥", strip_insignificant_zeros: true, format: "%u%n") %>(税込)</h5>
+              <h3 style="border-bottom: 1px solid black"><%= @item.name %></h3>
+              <p class="mt-3 mb-5"><%= @item.caption %></p>
+              <h5><%= number_to_currency(@item.tax_include, unit: "¥", strip_insignificant_zeros: true, format: "%u%n") %>(税込)</h5>
 
-              <%= form_with model: @cart_item, local: true do |f| %>
-                <%= f.hidden_field :item_id, value: @item.id %>
-                <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10], {}, class:"form-control mb-3", :prompt => "個数選択" %>
-                <% if current_customer.item_include?(@item) %>
-                  <%= f.submit "注文数の変更", class:"btn-flat-success" %>
-                <% else %>
-                  <%= f.submit "カートに入れる", class:"btn-flat-success" %>
+              <% if customer_signed_in? %>
+                <%= form_with model: @cart_item, local: true do |f| %>
+                  <%= f.hidden_field :item_id, value: @item.id %>
+                  <%= f.select :quantity, [1,2,3,4,5,6,7,8,9,10], {}, class:"form-control mb-3", :prompt => "個数選択" %>
+                  <% if current_customer.item_include?(@item) %>
+                    <%= f.submit "注文数の変更", class:"btn-flat-success" %>
+                  <% else %>
+                    <%= f.submit "カートに入れる", class:"btn-flat-success" %>
+                  <% end %>
                 <% end %>
+              <% else %>
+                <p style="color:#008000">購入手続きに進むにはログインしてください。</p>
               <% end %>
             </div>
           </div>

@@ -13,33 +13,18 @@
           <div class="hover-img">
             <%= attachment_image_tag item, :item_image, fallback:"cake_role.jpeg", class:"item_image fadein fadein-up" %>
           </div>
-
-          <% if customer_signed_in? %>
-            <%= link_to item_path(item), class:"hover-text" do  %>
-              <p class="text1"><%= item.name %></p>
-              <p class="text2"><%= item.caption %></p>
-            <% end %>
-          <% else %>
-            <%= link_to new_customer_session_path, class:"hover-text" do  %>
-              <p class="text1"><%= item.name %></p>
-              <p class="text2"><%= item.caption %></p>
-            <% end %>
+          <%= link_to item_path(item), class:"hover-text" do  %>
+            <p class="text1"><%= item.name %></p>
+            <p class="text2"><%= item.caption %></p>
           <% end %>
-
         </section>
       </div>
 
       <div class="col-sm-4 item_inf">
         <h4><%= item.name %></h4>
         <p class="item_price"><%= number_to_currency(item.price, unit: "¥", strip_insignificant_zeros: true, format: "%u%n") %></p>
-        <% if customer_signed_in? %>
-          <%= link_to item_path(item), class:"push_btn to_item" do %>
-            <span>商品詳細</span>
-          <% end %>
-        <% else %>
-          <%= link_to new_customer_session_path, class:"push_btn to_item" do %>
-            <span>商品詳細</span>
-          <% end %>
+        <%= link_to item_path(item), class:"push_btn to_item" do %>
+          <span>商品詳細</span>
         <% end %>
       </div>
     </div>
