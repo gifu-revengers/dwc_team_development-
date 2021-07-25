@@ -21,4 +21,5 @@ class Item < ApplicationRecord
     tax = 1.10
     (price * tax).round
   end
+
 end
