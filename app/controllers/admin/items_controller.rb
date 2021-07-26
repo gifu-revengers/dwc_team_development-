@@ -42,6 +42,15 @@ class Admin::ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
+      num = @item.name.delete("^0-9")
+      if @item.name.match(/[一-龠々]/)
+        @item.conversion_title = @item.name.to_kanhira.to_roman + num
+      elsif @item.name.is_hira? || @item.name.is_kana?
+        @item.conversion_title = @item.name.to_roman + num
+      else
+        @item.conversion_title = @item.name + num
+      end
+      @item.save
       flash[:notice] = "商品情報の更新が完了しました"
       redirect_to admin_items_path
     else
